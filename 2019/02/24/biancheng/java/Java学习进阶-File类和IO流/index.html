@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Java学习进阶-File类和IO流 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>Java学习进阶-File类和IO流</h2>
+  <p class="post-date">2019-02-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>Java进阶学习-File类和IO流</p>
+<a id="more"></a>
+<ul>
+<li>File类 <code>java.io.File</code> 类是文件和目录路径名的抽象表示，只要用于文件和目录的创建，查找和删除等操作<ul>
+<li>静态方法<ul>
+<li><code>static String pathSeparator</code>  与系统有关的路径分隔符，为了方便，它被表示为一个字符串。<ul>
+<li>Windows 分隔符 ; </li>
+<li>Linux 分隔符 :</li>
+</ul>
+</li>
+<li><code>static char pathSeparatorChar</code>  与系统有关的路径分隔符。 </li>
+<li><code>static String separator</code> 与系统有关的默认名称分隔符，为了方便，它被表示为一个字符串。<ul>
+<li>Windows \</li>
+<li>Linux /</li>
+</ul>
+</li>
+<li><code>static char separatorChar</code> 与系统有关的默认名称分隔符。 </li>
+</ul>
+</li>
+<li>路径：绝对路径和相对路径<ul>
+<li>路径不区分大小写</li>
+<li>路径中的文件名称分隔符Windows中使用反斜杠,由于反斜杠是转义字符，两个反斜杠代表一个普通的反斜杠</li>
+</ul>
+</li>
+<li>构造方法<ul>
+<li><code>File(String pathname)</code>  通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例。<ul>
+<li>String pathname 字符串的路径名称</li>
+<li>路径可以是以文件结尾，也可以是以文件夹结尾</li>
+<li>路径可以是相对路径，也可以是绝对路径</li>
+<li>路径可以是存在的，也可以是不存在的</li>
+</ul>
+</li>
+<li><code>File(String parent, String child)</code> 根据 parent 路径名字符串和 child 路径名字符串创建一个新 File 实例。</li>
+<li><code>File(File parent, String child)</code> 根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例。</li>
+</ul>
+</li>
+<li>成员方法<ul>
+<li>获取方法<ul>
+<li><code>public String getAbsolutePath()</code> 返回此File的绝对路径名字符串</li>
+<li><code>public String getPath()</code> 将File转换为路径名字符串</li>
+<li><code>public String getName()</code> 返回此File表示的文件或目录的名称</li>
+<li><code>public long length()</code> 返回此File表示的文件的长度<ul>
+<li>获取构造方法指定的文件的大写，以字节为单位<ul>
+<li>注意：1、文件夹是没有大小概念的，不能获取文件夹的大小， 2、如果构造方法中给出的路径不存在，那么length()返回值是一个0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>判断方法：<ul>
+<li><code>public boolean exists()</code> 此File表示的文件或目录是否实际存在；</li>
+<li><code>public boolean isDirectory()</code> 此File表示的是否为目录；</li>
+<li><code>public boolean isFile()</code> 此File表示的是否为文件；</li>
+</ul>
+</li>
+<li>创建删除功能的方法<ul>
+<li><code>public boolean createNewFile()</code> 当且仅当具有该名称的文件不存在的时候，创建一个新的空文件<ul>
+<li>文件不存在，创建文件返回true，若存在不会创建，返回false</li>
+<li>此方法只能创建文件，不可以创建文件夹</li>
+<li>创建文件的路径必须存在，否则会抛出异常</li>
+</ul>
+</li>
+<li><code>public boolean delete()</code> 删除由此Fiel表示的文件或目录(文件夹)<ul>
+<li>文件或者文件夹删除成功返回true</li>
+<li>文件夹中有内容不会删除或者构造方法中的目录不存在，返回false</li>
+<li>注意：1、delete方法是直接在硬盘删除文件/文件夹，不走回收站，删除要谨慎</li>
+</ul>
+</li>
+<li><code>public boolean mkdir()</code> 创建由此Fiel表示的目录</li>
+<li><code>public boolean mkdirs()</code> 创建由此Fiel表示的目录,包括任何必须但不存在的父目录(单级目录和多级目录都可以创建)</li>
+</ul>
+</li>
+<li>目录的遍历<ul>
+<li><code>public String[] list()</code> 返回一个String数组，表示该File目录中的所有子文件或目录</li>
+<li><code>public String[] listFiles()</code> 返回一个File数组，表示该File目录中的所有子文件或目录</li>
+<li>注意<ul>
+<li>list方法或listFiles方法遍历的是构造方法中给出的目录</li>
+<li>如果构造方法中给出的目录不存，就会抛出空指针</li>
+<li>如果构造方法中给出的路径不是一个目录，也会抛出空指针</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>递归：指当前方法内调用自己的现象<ul>
+<li>注意：<ul>
+<li>递归一定要有条件限定，保证递归能够停下来，否则会发生栈内存溢出</li>
+<li>在递归中虽然有条件限定，但是递归次数不能太多，否则也会发生栈内存溢出</li>
+<li>构造方法，禁止递归</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>过滤器</p>
+<ul>
+<li><p><code>java.io.FileFilter</code>接口：用于抽象路径名(File对象)的过滤器，用来过来文件(File对象)</p>
+<ul>
+<li><code>boolean accept(File pathname)</code> 测试指定抽象路径名是否应该包含在某个路径名列表中。<ul>
+<li>File pathname：使用ListFiles方法遍历目录得到的每一个文件对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>java.io.FilenameFilter filter</code> 接口:实现此接口的类实例可用于过滤器文件名，用来过来文件夹 </p>
+<ul>
+<li><code>boolean accept(File dir, String name)</code> 测试指定文件是否应该包含在某一文件列表中。 <ul>
+<li>File dir:构造方法中传递的被遍历的目录</li>
+<li>String name：使用ListFiles方法遍历目录，获取的每一个文件/文件夹的名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>过滤器接口是没有实现类的，需要自己书写实现类，重写过滤器的accept，在方法中自己定义过滤规则</li>
+</ul>
+</li>
+<li>IO流<ul>
+<li>字节流：字节输入流(InputStream) 字节输出流(OutputStream)</li>
+<li>字符流：字符输入流(Reader) 字符输出流(Writer)</li>
+<li>字节输出流(OutputStream):此抽象类是表示输出字节流的所有类的超类<ul>
+<li><code>void close()</code> 关闭此输出流并释放与此流有关的所有系统资源。</li>
+<li><code>void flush()</code> 刷新此输出流并强制写出所有缓冲的输出字节。</li>
+<li><code>void write(byte[] b)</code> 将 b.length 个字节从指定的 byte 数组写入此输出流。</li>
+<li><code>void write(byte[] b, int off, int len)</code> 将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此输出流。</li>
+<li><code>void write(int b)</code> 将指定的字节写入此输出流。</li>
+<li>子类：<ul>
+<li><code>java.io.FilterOutputStream</code> 文件字节输出流 把内存中的数据写到硬盘的文件中<ul>
+<li>构造方法：<ul>
+<li><code>FilterOutputStream(String name)</code>:创建一个向具有指定名称的文件中写入数据的输出文件流</li>
+<li><code>FilterOutputStream(File file)</code>：创建一个向指定File对象表示的文件中写入数据的文件输出流<ul>
+<li>参数：1、String name 文件的路径 2、File file：文件</li>
+<li>作用：创建一个FileOutputStream对象，根据构造方法中传递的文件/文件路径，创建一个空的文件，会把FileOutputStream对象指向创建好的文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Java">
+    <span class="tag-code">Java</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/02/14/biancheng/java/Java学习进阶-异常与多线程/">
+        <span class="nav-arrow">← </span>
+        
+          Java学习进阶-异常与多线程
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/04/09/biancheng/webpack/Webpack4学习笔记/">
+        
+          Webpack4学习笔记
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2019/02/24/biancheng/java/Java学习进阶-File类和IO流/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Java学习进阶-File类和IO流",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2019/02/24/biancheng/java/Java学习进阶-File类和IO流/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

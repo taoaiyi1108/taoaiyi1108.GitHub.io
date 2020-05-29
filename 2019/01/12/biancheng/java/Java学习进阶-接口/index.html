@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Java学习进阶-接口 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>Java学习进阶-接口</h2>
+  <p class="post-date">2019-01-12</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>Java进阶学习-接口</p>
+<a id="more"></a>
+<ul>
+<li>接口就是多个类的公共规范，接口是一种引用类型数据，最重要的内容就是其中：抽象方法</li>
+<li>接口的定义<ul>
+<li>格式 <code>public interface 接口名称{ 接口内容 }</code><ul>
+<li>备注：换成了的关键字interface之后，编译生成的字节码文件任然是：.java –&gt; .class</li>
+<li>如果是java 7，接口中包含的内容有；<ul>
+<li>常量</li>
+<li>抽象方法</li>
+</ul>
+</li>
+<li>如果是java 8，还可以额外包含<ul>
+<li>默认方法</li>
+<li>静态方法</li>
+</ul>
+</li>
+<li>如果是java 9，还可以包含<ul>
+<li>私有方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口的抽象方法定义</p>
+<ul>
+<li>在任何版本的java中，接口都可以定义抽象方法</li>
+<li>注意：<ul>
+<li>接口中抽象方法的修饰符必须是固定个关键字： <code>public abstract</code></li>
+<li>这两个关键字可以选择性的省略</li>
+<li>方法的三要素可以随意定义<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Myinterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">methosAbs</span><span class="params">()</span></span>; <span class="comment">/*这是一个抽象方法*/</span></span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">methosAbs1</span><span class="params">()</span></span>; <span class="comment">/*这是一个抽象方法*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methosAbs2</span><span class="params">()</span></span>; <span class="comment">/*这是一个抽象方法*/</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">methosAbs3</span><span class="params">()</span></span>; <span class="comment">/*这是一个抽象方法*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口的抽象方法使用步骤</p>
+<ul>
+<li>接口不能直接使用必须有一个实现类来实现接口<ul>
+<li>格式： <code>public class 实现类名称 implements 父类</code></li>
+</ul>
+</li>
+<li>接口的实现类必须覆盖重写接口类当中的所有重写方法</li>
+<li><p>创建实现类的对象进行使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyinterfaceImpl</span> <span class="keyword">implements</span> <span class="title">Myinterface</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methosAbs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是第一个方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methosAbs1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是第二个方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methosAbs2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是第三个方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methosAbs3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是第四个方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyinterfaceImpl impl = <span class="keyword">new</span> MyinterfaceImpl();</span><br><span class="line">        impl.methosAbs();</span><br><span class="line">        impl.methosAbs1();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意事项：如果这个实现类并没有完全重写接口当中所有的抽象方法，那么这个实现类自己就必须是以抽象类</p>
+</li>
+</ul>
+</li>
+<li>接口的默认方法<ul>
+<li>定义<ul>
+<li>从Java 8开始，接口允许定义默认方法</li>
+<li>格式： <code>public default 返回值类型 方法名称(参数列表){ 方法体 }</code></li>
+<li>备注：接口当中的默认方法可以解决接口的升级问题</li>
+</ul>
+</li>
+<li>使用<ul>
+<li>接口的默认方法可以通过接口的实现类直接调用</li>
+<li>接口的默认方法也可以被接口的实现类覆盖重写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口的静态方法<ul>
+<li>定义<ul>
+<li>从Java 8开始接口中允许定义静静态方法</li>
+<li>格式： <code>public static 返回值类型 方法名称(参数列表){ 方法体 }</code></li>
+</ul>
+</li>
+<li>使用<ul>
+<li>不能通过接口实现类的对象来调用接口当中的静态方法</li>
+<li>通过接口名称直接调用接口的静态方法 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口的私有方法<ul>
+<li>定义<ul>
+<li>从Java 9开始，接口中允许定义私有方法<ul>
+<li>普通私有方法：解决多个默认方法中重复代码问题 <code>private 返回值类型 方法名称(参数列表){ 方法体 }</code></li>
+<li>静态私有方法：解决多个静态方法中重复代码问题 <code>private static 返回值类型 方法名称(参数列表){ 方法体 }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>只有接口本身的方法才可以调用私有方法，实现类不可以调用的</li>
+</ul>
+</li>
+<li>接口常量<ul>
+<li>定义：接口中也可以定义 “成员变量”，但必须使用 <code>public static final</code> 三个关键字来修饰，这就是接口的常量，不可改变，</li>
+<li>格式： <code>public static final 数量类型 常量名称 = 数据值</code>  </li>
+<li>注意<ul>
+<li>可以省略 <code>public static final</code></li>
+<li>接口中的常量必须进行赋值</li>
+<li>接口中常量的名称使用完全大写的字母，用下划线分割</li>
+</ul>
+</li>
+<li>使用：接口名称直接点<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUM_OR_CLASS = <span class="number">12</span>;</span><br><span class="line">MyInterfaceConst.NUM_OR_CLASS;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>接口使用时注意事项</p>
+<ul>
+<li>接口是没有静态代码块和构造方法的</li>
+<li><p>一个类的父类是唯一的，但是一个类可以同时实现多个接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceImp</span> <span class="keyword">implements</span> <span class="title">MyinterfaceA</span>,<span class="title">MyinterfaceB</span> </span>&#123; <span class="comment">/*覆盖重写所有重写方法*/</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果实现类实现的多个接口当中，存在重复的抽象方法，秩序覆盖重写一次即可</p>
+</li>
+<li>如果实现类没有覆盖重写所有的抽象类中的所有抽象方法，那么这个实现类必须也是一个的抽象类</li>
+<li>如果实现类实现的多个接口中有重复的默认方法，实现类一定要对冲突的默认方法进行覆盖重写</li>
+<li>一个类如果直接父类中的方法和接口当中的默认方法产生冲突，优先使用父类当中的方法</li>
+</ul>
+</li>
+<li>类和接口之间的关系<ul>
+<li>类与类之间是单继承的，直接父类只有一个</li>
+<li>类与接口之间是多实现的，一类可以实现多个接口</li>
+<li>接口与接口之间是多继承的<ul>
+<li>多个父接口的抽象方法重复，没关系</li>
+<li>多个父接口的默认方法重复，那么子接口必须进行默认方法的覆盖重写【而且要带有 <code>default</code>关键字】<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> <span class="keyword">extends</span> <span class="title">MyinterfaceA</span>,<span class="title">MyinterfaceB</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Java">
+    <span class="tag-code">Java</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/01/07/biancheng/java/Java学习进阶-API/">
+        <span class="nav-arrow">← </span>
+        
+          Java学习进阶-API
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/01/21/biancheng/vue/Vue兄弟组件之间通信传值/">
+        
+          Vue兄弟组件之间通信传值
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2019/01/12/biancheng/java/Java学习进阶-接口/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Java学习进阶-接口",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2019/01/12/biancheng/java/Java学习进阶-接口/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

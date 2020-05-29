@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      微信小程序开发 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>微信小程序开发</h2>
+  <p class="post-date">2017-11-29</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><ol>
+<li>通过公众号与小程序之间的关联，可以实现公众号与小程序之间的跳转，不支持小程序和APP直接的跳转；小程序基于H5开发，云端应用，无需下载，一次开发多终端适配，</li>
+<li>入口，扫码，搜索，分享，才可以进入，进入下载无WiFi费流量，不允许主动给用户发送广告</li>
+<li>小程序与H5的区别<br> a. JavaScript的限制<br> i. 通过传入字符转来执行代码的能力被禁用了，具体禁用掉的原生功能有：new Function eval Cenerator<br> ii. H5是运行在浏览器中，但是小程序并非运行在浏览器中，因此与浏览器BOM相关的API都没有，例如：document，window，而且小程序没有cookie<br> b. 小程序开发组在登录（避免重定向问题）、存储（对每个小程序的限制是5M、支持同步和异步）和支付方面（微信支付路径不受限制）做了更好的改进<br> c. 小程序开发组比HTML5开发不方便的地方有明显的两点：<br> i. 每个页面都需要手动在配置文件（app.json）中进行注册，如果没有注册，是不执行该页面的<br> ii. 打开页面有5个限制，在开发时需要注意控制开发的页面数量<br> iii. 微信小程序是一种介于原生APP和WebAPP的混合体，相对原生APP来说，小程序更加轻量，更加实时，跨平台；相对webAPP来说，小程序资源离线，体验流畅</li>
+<li>文件类型<br> a. index.js —— index.js<br> b. index.html —— index.wxml<br> c. index.css —— index.wxss</li>
+<li>小程序目录文件结构：其中app.js和app.json是必须的，app.json不可添加任何注释。project.config.json 是项目配置文件</li>
+<li><p>文件用途<br><div align="center"><br>   <img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-1.png" alt=""><br></div><br> a. .js .json 文件是必须的，不存在程序不正常运行<br> b. pages（页面）<br> i. 页面名称必须和文件名称一样<br> ii. logs.json 必须包含{} 即便没有内容 否则会报错<br> c. utils（公共资源）<br> i. app.js 入口文件 可以声明全集变量 监控周期函数<br> ii. app.json 注册页面  不注册不可以使用、设置页面窗体颜色</p>
+<ol>
+<li><p>窗体颜色只有黑白两种颜色</p>
+<div align="center">
+
+<p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-2.png" alt=""><br></p></div><br>iii. app.wxss配置全局样式（单独页面的样式会把全局的层叠掉）<p></p>
+</li>
+</ol>
+</li>
+<li><p>新建页面<br><div align="center"><br>   <img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-3.png" alt=""><br></div><br>   a. 点击文件新建（推荐）<br> b. app.json快速新建<br> c. pages：按顺序显示</p>
+</li>
+<li>MINA框架</li>
+<li>小程序配置<br> a. 全局配置：微信小程序的全局配置保存在app.json文件中、开发者通过使用app.json来配置页面文件（pages）的路径，窗口（Windows）表现、设定网络超时时间值（network Timeout）以及配置多个切换页（tarBar）等。<br> i. app.json配置项列表<br><div align="center"><br>   <img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-4.png" alt=""><br></div><br> ii. pages：配置项<ol>
+<li>数组的第一项用于设定小程序的初始页</li>
+<li>小程序新增/减少页面都需要对pages数组进行修改</li>
+<li>文件不需要写文件后缀，小程序框架会自动去寻找路径<br>iii. window配置项：状态栏，导航栏，标题，窗口等对象的颜色、背景色、内容属性，可配置对象参数如下：<br><div align="center"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-5.png" alt=""><br></div><br>iv. tabBar底部导航<br>V. icon 图片推荐（81px） 可以去阿里图标库下载 <a href="http://www.iconfont.cn/home/index" target="_blank" rel="noopener">地址</a></li>
+<li>tabBar的list是一个数组对象 至少包含2个对象最多包含5个，</li>
+<li>position在顶部的时候 icon图标就消失，不起作用，默认在底部<br><div align="center"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/weixin-6.png" alt=""><br></div><ol start="3">
+<li>borderStyle 设置上边框的颜色 只有white和black<br>b. 页面配置：给每个页面的.json文件进行配置，但是页面职能配置窗口的表现。页面的配置比app.json全局简单的多，只是这只app.json中的window配置项的内容，页面中配置项会覆盖app.json的window中想通的配置项</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>小程序的逻辑层<br>a. 运行环境：不是浏览器，而是微信内部环境，所以不能用document，window<br>b. APP（{}） 入口文件接受的是一个对象<br>c. page（）方法 接受object参数，指定页面的初始数据、生命周期函数、事件处理函数等； 每个页面有且只有一个，必须要有的<br>d. onShareAppMessage（用户转发） 只有定义了此事件处理函数，右上角才会出现显示“转发”按钮，用户点击按钮的时候会调用，此事件需要return一个Object，用于自定义转发内容<br>i. title 转发的标题<br>ii. path 转发的路劲<br>e. 修改data数据<br>i. dingTab    this.setData（{name：“更改后的数据”}）</li>
+<li>CSS 布局注意<br>a. height：100%  view 要写成  height：100vh 才会生效<br>b. 长度单位rem ===  rpx </li>
+</ol>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#微信小程序开发">
+    <span class="tag-code">微信小程序开发</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2017/11/29/suibi/年轻人的生活/">
+        <span class="nav-arrow">← </span>
+        
+          年轻人的生活
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2017/11/29/biancheng/git/git/">
+        
+          git基础没操作教程
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/weixin/微信小程序开发/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "微信小程序开发",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/weixin/微信小程序开发/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

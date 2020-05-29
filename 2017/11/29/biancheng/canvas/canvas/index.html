@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Canvas | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>Canvas</h2>
+  <p class="post-date">2017-11-29</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><ul>
+<li>Canvas就是HTML5给出的可以展示绘图内容的标签,最早是苹果公司提出的</li>
+</ul>
+<h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><ul>
+<li><p>Canvas默认宽高是 width:300px 和 height:150px,可以通过HTML属性去设置,一般不要使用CSS去设置</p>
+</li>
+<li><p>使用属性去设置canvas标签的宽高,实际上相当于增加了canvas画布的像素,但是使用css设置画布大小,不会增加像素点,只是将像素扩大;</p>
+</li>
+<li><p>canvas只能展示绘图的内容,但不能进行绘图</p>
+<ul>
+<li>每一套vanvas都有一套工具,利用工具在当前canvas上绘图,使用语法canvas.getContext.2D就返回当前绘图的工具集</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是-Canvas"><a href="#什么是-Canvas" class="headerlink" title="什么是 Canvas"></a>什么是 Canvas</h3><ul>
+<li>就是 HTML 5 给出的一个可以展示绘图内容的标签.最早是 苹果公司 提出的该标签.</li>
+<li>threejs.org 里面有汽车等 3D 的仿真</li>
+</ul>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
+<li>提供 Canvas 标签即可. 默认就会占据 300 * 150 的区域</li>
+<li>利用 html 属性为它设置宽高. 不要使用 CSS 来设置.<ul>
+<li>使用 属性设置 canvas 标签的宽高, 实际上相当于增加了 canvas 画布的像素</li>
+<li>但是如果使用 CSS 来设置画布的大小, 那么不会增加像素点, 只是将像素扩大了</li>
+</ul>
+</li>
+<li>Canvas 只能展示绘图的内容. 但是不能进行绘图<ul>
+<li>利用 Canvas 找到绘图工具</li>
+<li>每一个 Canvas 都有一套工具, 利用工具可以在当前 Canvas 上进行绘图</li>
+<li>使用语法 canvas.getContext( ‘2d’ ) 就返回一个在当前画布上绘图的工具集</li>
+<li>这个工具集专门绘制 平面图形. 如果要绘制 立体的图形需要传入 ‘webgl’</li>
+<li>绘制 平面图形的 对象是 CanvasRenderingContext2D 类型的</li>
+</ul>
+</li>
+<li>开始绘图<ul>
+<li>首先需要绘制点, 然后需要将这些点描边吗才可以看到东西</li>
+</ul>
+</li>
+</ul>
+<h3 id="绘图的坐标系"><a href="#绘图的坐标系" class="headerlink" title="绘图的坐标系"></a>绘图的坐标系</h3><ul>
+<li>在绘图板上描述出下列点的位置<br>  <code>( 100, 100 ), ( 0, 100 ), ( 100, 0 ), ( -10, 100 ), ( 100, -10 )</code></li>
+</ul>
+<h3 id="绘图的常用方法"><a href="#绘图的常用方法" class="headerlink" title="绘图的常用方法"></a>绘图的常用方法</h3><pre><code>ctx.moveTo( x, y )    将绘图的起始点设置为 x,y
+ctx.lineTo( x, y )     从当前位置, 绘制直线到 x,y
+ctx.stroke()        就是将刚刚绘制的所有的点联系起来. 就可以看到图形了.
+</code></pre><h3 id="绘制方法"><a href="#绘制方法" class="headerlink" title="绘制方法"></a>绘制方法</h3><pre><code>ctx.stroke()
+ctx.fill()
+调用 fill 方法会将所有的点连接起来, 并构成一个封闭的图形结构
+如果所有的描点没有构成封闭结构, 也会将开始的起点, 与最终的点
+连接起来, 构成一个闭合的图形, 并在里面填充颜色(默认黑色)
+</code></pre><h3 id="非零环绕原则"><a href="#非零环绕原则" class="headerlink" title="非零环绕原则"></a>非零环绕原则</h3><pre><code>如果需要判断某一个区域是否需要填充颜色. 就从该区域中随机的选取一个点. 
+从这个点拉一条直线出来, 一定要拉到图形的外面. 此时以该点为圆心.
+看穿过拉出的直线的线段. 如果是顺时针方向就记为 +1, 如果是 逆时针方向,
+就记为 -1. 最终看求和的结果. 如果是 0 就不填充. 如果是 非零 就填充.
+</code></pre><h3 id="闭合路径"><a href="#闭合路径" class="headerlink" title="闭合路径"></a>闭合路径</h3><pre><code>closePath()
+
+lineWidth 设置绘制图形的线宽 
+
+closePath 与 直接使用 lineTo 闭合是有区别的
+</code></pre><h3 id="Canvas-中绘图是有状态的"><a href="#Canvas-中绘图是有状态的" class="headerlink" title="Canvas 中绘图是有状态的"></a>Canvas 中绘图是有状态的</h3><pre><code>背景     粉色
+正方形     红色
+边框        蓝色
+
+Canvas 绘图是含有状态的, 在需要改变颜色, 绘制方法, 改变一些属性... 就需要
+改变绘图状态. 使用 beginPath() 方法. 开启一个新的路径.
+</code></pre><h3 id="虚线"><a href="#虚线" class="headerlink" title="虚线"></a>虚线</h3><pre><code>ctx.setLineDash( 数组 )
+ctx.getLineDash()
+ctx.lineDashOffset = 值
+
+数组中存储的数字就是分别表示 实线部分与空白部分的长度 [ 10 ]
+</code></pre><h3 id="如何设置描边与填充的颜色"><a href="#如何设置描边与填充的颜色" class="headerlink" title="如何设置描边与填充的颜色"></a>如何设置描边与填充的颜色</h3><pre><code>ctx.strokeStyle     设置描边的颜色
+ctx.fillStyle        设置填充的颜色
+</code></pre><h3 id="将直线进行封装"><a href="#将直线进行封装" class="headerlink" title="将直线进行封装"></a>将直线进行封装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Line</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> line = <span class="keyword">new</span> Line( x0, y0, x1, y1 );</span><br><span class="line">line.stroke();</span><br></pre></td></tr></table></figure>
+<h3 id="绘制形状"><a href="#绘制形状" class="headerlink" title="绘制形状"></a>绘制形状</h3><ul>
+<li><p>矩形</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.rect( x, y, width, heigth )		描边, 需要 stroke 或 fill</span><br><span class="line">ctx.strokeRect( x, y, w, h )</span><br><span class="line">ctx.fillRect( x, y, w, h )</span><br><span class="line">ctx.clearRect( x, y, w, h ) 		清除该矩形区域的内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除整个画布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.clearRect( 0, 0, cas.width, cas.height );</span><br><span class="line">cas.width = cas.width;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>圆弧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.arc( x, y, r, startAngle, endAngle, clockwise )</span><br><span class="line">ctx.arcTo() 了解</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="弧度制"><a href="#弧度制" class="headerlink" title="弧度制"></a>弧度制</h3><ul>
+<li>为了更好的计算角度, 我们该角度提供一个新的定义, 用 PI 作为单位，将单位圆的一个整圈( 360 度 )记作 2 倍 的 PI.</li>
+<li>这样的度量表示就是弧度制的表示方法.<ul>
+<li>60 度 PI / 3</li>
+<li>45 度 PI / 4</li>
+<li>30 度 PI / 6</li>
+</ul>
+</li>
+<li>学会进行转换<ul>
+<li>2 PI 刚好是一圈</li>
+<li>一圈又是 360 度</li>
+<li>2 PI 比上 360 度 = 弧度 比上 对应的角度</li>
+<li>angle 角度</li>
+<li>radian 弧度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toAngle</span> (<span class="params"> radian </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> radian * <span class="number">180</span> / <span class="built_in">Math</span>.PI; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toRadian</span> (<span class="params"> angle </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> angle * <span class="built_in">Math</span>.PI / <span class="number">180</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="角度的坐标"><a href="#角度的坐标" class="headerlink" title="角度的坐标"></a>角度的坐标</h3><pre><code>水平向右的角度是 0 度, 或 0 弧度
+顺时针是正方向, 逆时针是负方向
+</code></pre><ul>
+<li>如果没有当前位置, 绘制圆弧是没有任何问题但是如果有了当前位置, 绘制圆弧的时候会将当前位置连接到圆弧上</li>
+</ul>
+<h3 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h3><pre><code>ctx.fillText( 文本内容, x, y )
+ctx.strokeText( 文本内容, x, y );
+
+常用的属性
+ctx.font = &apos;30px 黑体&apos;
+
+ctx.textAlign        left, center, right.    start, end
+ctx.textBaseline    top, middle, bottom.    hanging, ideographics, alphabetic
+
+ctx.measureText( 文本 )        获取当前文字的字体设置下, 文字的宽度对象
+</code></pre><h3 id="图片绘制"><a href="#图片绘制" class="headerlink" title="图片绘制"></a>图片绘制</h3><pre><code>ctx.drawImage()
+有三种调用形式
+1&gt; ctx.drawImage( img, x, y ) 将 image 绘制到 x, y 表示的位置
+2&gt; ctx.drawImage( img, x, y, width, height ) 将 img 绘制到一个矩形区域内
+3&gt; ctx.drawImage( img, sx, sy, sw, sh, x, y, w, h )
+    将图片 img 的 sx, sy, sw, sh 部分的内容绘制到画布的
+    x, y, w, h 的矩形区域内.
+</code></pre><h3 id="变换的概念"><a href="#变换的概念" class="headerlink" title="变换的概念"></a>变换的概念</h3><pre><code>计算机绘图是利用坐标进行绘图. 绘制任何图形都和坐标系的结构息息相关.
+
+所谓的变换就是一套数学公式, 可以记录坐标轴的变化方式.
+利用坐标轴的变换可以绘制出, 根据不同坐标轴特点而形成的图形.
+
+基本的 api
+ctx.translate()        平移变换
+ctx.rotate()        旋转变换
+ctx.scale()            伸缩变换
+</code></pre><h3 id="canvas-的状态"><a href="#canvas-的状态" class="headerlink" title="canvas 的状态"></a>canvas 的状态</h3><pre><code>在 Canvas 中凡是设置了属性效果, 都会延续到后面一次修改
+Canvas 在创建出来的时候, 是有一个默认的状态的
+我希望每次修改状态的时候 都是不影响原来默认状态的
+每次画完图时, 我都会新建一个状态, 然后绘制完成后
+恢复到原有状态
+
+ctx.save()        将当前状态保存
+ctx.restore()     将保存的状态恢复
+
+状态栈
+</code></pre><h3 id="在-canvas-绘制的时候允许使用-canvas-绘制-canvas"><a href="#在-canvas-绘制的时候允许使用-canvas-绘制-canvas" class="headerlink" title="在 canvas 绘制的时候允许使用 canvas 绘制 canvas"></a>在 canvas 绘制的时候允许使用 canvas 绘制 canvas</h3><pre><code>ctx.darwImage( img, ... )
+
+此时 img 可以是 图片, 还可以是 canvas, 甚至是 video
+</code></pre><h3 id="Konva-是一个完全面向对象的框架"><a href="#Konva-是一个完全面向对象的框架" class="headerlink" title="Konva 是一个完全面向对象的框架"></a>Konva 是一个完全面向对象的框架</h3><pre><code>将所有的东西都看做是对象: 图片, 直线, 矩形, ...
+将整个canvas看做成舞台(stage)
+在舞台上放一个层, 那么将所有的图形放在这个层中
+</code></pre></section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#canvas">
+    <span class="tag-code">canvas</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2017/11/29/biancheng/angular/angular/">
+        <span class="nav-arrow">← </span>
+        
+          Angular
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2017/11/29/biancheng/vue/mint-ui-Lazyload/">
+        
+          mint-ui-Lazyload的用法
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/canvas/canvas/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Canvas",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/canvas/canvas/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

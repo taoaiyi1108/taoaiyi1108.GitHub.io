@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      npm&amp;gulp基础知识 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>npm&gulp基础知识</h2>
+  <p class="post-date">2017-11-29</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><ul>
+<li>node package manager</li>
+<li>管理项目的依赖包</li>
+<li>可以用来下载我们需要使用的东西</li>
+<li>安装后可以通过<code>npm -v</code> 查看版本</li>
+</ul>
+<h3 id="npm-使用"><a href="#npm-使用" class="headerlink" title="npm 使用"></a>npm 使用</h3><ul>
+<li>1.初始化操作<ul>
+<li><code>npm init</code> 会生成一个package.json文件</li>
+</ul>
+</li>
+<li><p>2.下载所需要的包</p>
+<ul>
+<li><code>npm install jquery</code>  下载jquery</li>
+<li>会去 registry.npmjs.org 这个地址下载jquery</li>
+<li>会生成一个node_modules目录，下载的内容就放在这个目录</li>
+</ul>
+</li>
+<li><p>3.下载包时，可以加上 <code>--save</code> 参数</p>
+<ul>
+<li><code>npm install jquery --save</code>, 下载之后会在package.json中添加<br>当前下载的包的版本信息。</li>
+</ul>
+</li>
+</ul>
+<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><p><a href="http://www.gulpjs.com" target="_blank" rel="noopener">官网</a><br><a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">中文网</a></p>
+<ul>
+<li>前端自动化构建工具</li>
+<li>js: function(){//},代码压缩,混淆 : var name = 123,var x = 123</li>
+<li>css, </li>
+<li>合并: 1个js 1kb ,有10个js.</li>
+</ul>
+<h3 id="5个核心方法"><a href="#5个核心方法" class="headerlink" title="5个核心方法"></a>5个核心方法</h3><ul>
+<li>gulp.task(‘任务名’,function(){}) // 创建任务。</li>
+<li>gulp.src(‘./*.css’) 指定想要处理的文件</li>
+<li>gulp.dest() // 指定最终处理后的文件的存放路径</li>
+<li>gulp.watch() // 自动的监视文件的变化，然后执行相应任务。</li>
+<li>gulp.run(‘任务名’)，直接执行相应的任务。</li>
+</ul>
+<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><ul>
+<li>通过npm安装:<code>npm install gulp-cli -g</code></li>
+</ul>
+<h3 id="gulp使用"><a href="#gulp使用" class="headerlink" title="gulp使用"></a>gulp使用</h3><ul>
+<li>1.在当前项目中也要安装gulp: <code>npm install gulp --save</code></li>
+<li>2.还需要在当前项目中新建一个文件: gulpfile.js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> gulp =  <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建任务</span></span><br><span class="line">    <span class="comment">// 第一个参数: 任务名</span></span><br><span class="line">    <span class="comment">// 第二个参数: 回调函数,当我们执行任务时就会执行这个函数</span></span><br><span class="line">    gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.执行任务: <code>gulp 任务名</code><ul>
+<li>示例: <code>gulp test</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="对js进行压缩"><a href="#对js进行压缩" class="headerlink" title="对js进行压缩"></a>对js进行压缩</h3><ul>
+<li><code>npm install gulp-uglify --save</code></li>
+</ul>
+<h3 id="对js进行合并操作"><a href="#对js进行合并操作" class="headerlink" title="对js进行合并操作"></a>对js进行合并操作</h3><ul>
+<li><code>npm install gulp-concat --save</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    gulp.task(<span class="string">'script'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 1.要匹配到要处理的文件</span></span><br><span class="line">  <span class="comment">// 指定指定的文件:参数是匹配的规则</span></span><br><span class="line">  <span class="comment">// 参数也可以是数组，数组中的元素就是匹配的规则</span></span><br><span class="line">  gulp.src([<span class="string">'./app.js'</span>,<span class="string">'./sign.js'</span>])</span><br><span class="line">  <span class="comment">// concat 的参数是合并之后的文件名字</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.js'</span>))</span><br><span class="line">  .pipe(uglify())</span><br><span class="line">  <span class="comment">// dest方法参数，指定输出文件的路径</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="对css进行压缩操作"><a href="#对css进行压缩操作" class="headerlink" title="对css进行压缩操作"></a>对css进行压缩操作</h3><ul>
+<li><code>npm install gulp-cssnano --save</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 新建一个任务，对css进行处理</span></span><br><span class="line">gulp.task(<span class="string">'style'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 对项目中的2个css文件进行合并，压缩操作</span></span><br><span class="line">  <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line">  gulp.src([<span class="string">'./*.css'</span>])</span><br><span class="line">  <span class="comment">// 2.合并文件</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.css'</span>))</span><br><span class="line">  <span class="comment">// 3.压缩操作</span></span><br><span class="line">  .pipe(cssnano())</span><br><span class="line">  <span class="comment">// 4.输出到指定目录</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="对html进行压缩"><a href="#对html进行压缩" class="headerlink" title="对html进行压缩"></a>对html进行压缩</h3><ul>
+<li><code>npm install gulp-htmlmin --save</code></li>
+<li><a href="https://github.com/kangax/html-minifier" target="_blank" rel="noopener">https://github.com/kangax/html-minifier</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 新建一个任务，对html进行压缩</span></span><br><span class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line"> gulp.src([<span class="string">'./index.html'</span>])</span><br><span class="line"> <span class="comment">// 2.压缩操作</span></span><br><span class="line"> .pipe(htmlmin(&#123;<span class="attr">collapseWhitespace</span>:<span class="literal">true</span>&#125;))</span><br><span class="line"> <span class="comment">// 3.指定输出目录</span></span><br><span class="line"> .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="gulp-watch"><a href="#gulp-watch" class="headerlink" title="gulp.watch"></a>gulp.watch</h3><ul>
+<li>监视文件的变化，然后执行相应的任务</li>
+<li>gulp.run, 直接执行指定的任务</li>
+</ul>
+<p><code>`</code>javascript<br>    // gulp.watch 监视文件变化，执行相应任务<br>  gulp.task(‘mywatch’, function(){<br>  // 执行指定的任务<br>  gulp.run(‘script’)<br>  // 1.监视js文件的变化，然后执行script任务<br>  // 第一个参数：要监视的文件的规则<br>  // 第二个参数：是要执行的任务<br>  gulp.watch([‘./app.js’,’sign.js’],[‘script’])<br>})</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#npm">
+    <span class="tag-code">npm</span>
+  </a>
+
+  <a href="/tags#gulp">
+    <span class="tag-code">gulp</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2017/11/29/biancheng/git/git/">
+        <span class="nav-arrow">← </span>
+        
+          git基础没操作教程
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2017/11/29/biancheng/angular/angular/">
+        
+          Angular
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/npm/npm/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "npm&gulp基础知识",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2017/11/29/biancheng/npm/npm/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

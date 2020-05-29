@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Vue中同页面(路由)下如何实现点击按钮改变内容 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>Vue中同页面(路由)下如何实现点击按钮改变内容</h2>
+  <p class="post-date">2018-11-13</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><a id="more"></a>
+<h5 id="很多同学应该有过这样的经历"><a href="#很多同学应该有过这样的经历" class="headerlink" title="很多同学应该有过这样的经历"></a>很多同学应该有过这样的经历</h5><ul>
+<li>通过点击电影list页面的一项，通过URL传值把电影的ID传到电影的play页面，通过ID获取电影详情，播放电影；</li>
+<li>在电影播放页面下面又会有推荐电影的list，用户点击list中的item电影，页面播放当前点击的电影；</li>
+<li>然而很多同学很容易完成上面的需求，但是，当用户刷新页面后，播放的电影又成了第一次进入时的电影，原因是，在页面刷新的时候Vue组件的生命周期重新加载，此时获取电影详情的方法传入的ID是你在URL中带过了的电影ID，你点击按钮播放的推荐list中的点ID根本就没有记录；</li>
+<li>此时为了来解决这个问题，有人会想到本地缓存，当然，用本地缓存是可以解决用户刷新播放电影回跳的BUG，但依旧会有一个问题就是，用户看到一个电影看到一半有事想退出，在没有用户登录的游客身份下，他选择了收藏该页面；</li>
+<li>那么问题来了，他下次进入这个页面是不是还是和之前页面刷新一样的问题，页面还是用url上的ID获取电影的详情 ，不是用户收藏时的电影<br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/4.png" alt=""></li>
+</ul>
+<h5 id="说到这里很多同学应该已经明白了，问题的关键就在url上，只要用户点击推荐list电影，URL就要改变，DI变成当前播放的电影的ID；"><a href="#说到这里很多同学应该已经明白了，问题的关键就在url上，只要用户点击推荐list电影，URL就要改变，DI变成当前播放的电影的ID；" class="headerlink" title="说到这里很多同学应该已经明白了，问题的关键就在url上，只要用户点击推荐list电影，URL就要改变，DI变成当前播放的电影的ID；"></a>说到这里很多同学应该已经明白了，问题的关键就在url上，只要用户点击推荐list电影，URL就要改变，DI变成当前播放的电影的ID；</h5><h5 id="下面我们就谈谈使用Vue如何实现这样的逻辑"><a href="#下面我们就谈谈使用Vue如何实现这样的逻辑" class="headerlink" title="下面我们就谈谈使用Vue如何实现这样的逻辑"></a>下面我们就谈谈使用Vue如何实现这样的逻辑</h5><ul>
+<li><p>先说有问题的逻辑（啰嗦一下免的有些同学不太懂）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"url"</span> <span class="attr">class</span>=<span class="string">"play"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-item"</span> <span class="attr">v-for</span>=<span class="string">"(v,i) in videolist"</span> <span class="attr">:key</span>=<span class="string">"i"</span> @<span class="attr">click</span>=<span class="string">"clickItem(v.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> &gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name:<span class="string">"play"</span>,</span></span><br><span class="line"><span class="undefined">    data()&#123;</span></span><br><span class="line"><span class="undefined">        videodata:&#123;&#125;,</span></span><br><span class="line"><span class="undefined">        videolist:[]</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods:&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">/*获取当前要播放的电影详情*/</span></span></span><br><span class="line"><span class="undefined">        getvideo(id)&#123;</span></span><br><span class="line"><span class="javascript">            ajax.get(url).then(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;<span class="keyword">this</span>.videodata = resolve.data&#125; );</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">/*推荐电影list数据*/</span></span></span><br><span class="line"><span class="undefined">        getVideolist()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> category = <span class="keyword">this</span>.$route.query.category;</span></span><br><span class="line"><span class="javascript">            ajax.get(category).then(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;<span class="keyword">this</span>.videolist = resolve.data&#125; );</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">/*点击推荐电影list，播放点击的电影*/</span></span></span><br><span class="line"><span class="undefined">        clickItem(id)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.getvideo(id);</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">/*获取URL上的video ID*/</span></span></span><br><span class="line"><span class="undefined">        getVideoId()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> videoId = <span class="keyword">this</span>.$toure.query.id;</span></span><br><span class="line"><span class="javascript">            <span class="comment">/*此处判断缓存中是否有videoId，解决刷新后当前播放的video回调*/</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.getvideo(videoId);  </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created()&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.getVideoId();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.getVideolist();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正确的逻辑是怎样的呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*我们只需点击推荐list中电影时，重置路由，然后在watch中监控路由是否变化就可以了*/</span></span><br><span class="line">methods:&#123;</span><br><span class="line">    <span class="comment">/*点击推荐电影list，播放点击的电影*/</span></span><br><span class="line">    clickItem(id)&#123;</span><br><span class="line">        <span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>:<span class="string">'/videoplay'</span>,<span class="attr">query</span>:&#123;id&#125;&#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">watch:&#123;</span><br><span class="line">    <span class="string">"$route"</span>(to,<span class="keyword">from</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(to.query.id != <span class="keyword">from</span>.query.id)&#123;</span><br><span class="line">            <span class="comment">/*获取URL上的video ID*/</span></span><br><span class="line">            <span class="keyword">this</span>.getVideoId()&#123;</span><br><span class="line">                <span class="keyword">const</span> videoId = <span class="keyword">this</span>.$toure.query.id;</span><br><span class="line">                <span class="comment">/*此处判断缓存中是否有videoId，解决刷新后当前播放的video回调*/</span></span><br><span class="line">                <span class="keyword">this</span>.getvideo(videoId);  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这样路由的的参数id也改变了,当前页面数据也刷新了*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="以上是个人思路，如有不对请指出，-我"><a href="#以上是个人思路，如有不对请指出，-我" class="headerlink" title="以上是个人思路，如有不对请指出，@我"></a>以上是个人思路，如有不对请指出，<a href="/about">@我</a></h6></section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#vue">
+    <span class="tag-code">vue</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/11/08/suibi/人心与性格/">
+        <span class="nav-arrow">← </span>
+        
+          人心与性格
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2018/11/23/biancheng/upload/H5upload之点击图片实现上传功能/">
+        
+          H5upload之点击图片实现上传功能
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2018/11/13/biancheng/vue/Vue中同页面-路由-下如何实现点击按钮改变内容/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Vue中同页面(路由)下如何实现点击按钮改变内容",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2018/11/13/biancheng/vue/Vue中同页面-路由-下如何实现点击按钮改变内容/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

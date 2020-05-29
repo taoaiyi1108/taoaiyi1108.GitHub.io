@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Tags | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link active">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link mobile-active">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>Tags</h2>
+  <p class="post-date">标签检索</p>
+</div>
+<main class="app-body">
+  <div id="tag-cloud">
+    
+      <a class="tag0" data-name="tag-随笔">随笔</a>
+    
+      <a class="tag1" data-name="tag-canvas">canvas</a>
+    
+      <a class="tag3" data-name="tag-git">git</a>
+    
+      <a class="tag3" data-name="tag-iframe">iframe</a>
+    
+      <a class="tag1" data-name="tag-element">element</a>
+    
+      <a class="tag0" data-name="tag-html">html</a>
+    
+      <a class="tag3" data-name="tag-Java">Java</a>
+    
+      <a class="tag1" data-name="tag-js知识点">js知识点</a>
+    
+      <a class="tag1" data-name="tag-面向对象">面向对象</a>
+    
+      <a class="tag2" data-name="tag-Deepin">Deepin</a>
+    
+      <a class="tag1" data-name="tag-Linux">Linux</a>
+    
+      <a class="tag0" data-name="tag-npm">npm</a>
+    
+      <a class="tag2" data-name="tag-gulp">gulp</a>
+    
+      <a class="tag2" data-name="tag-php">php</a>
+    
+      <a class="tag0" data-name="tag-React">React</a>
+    
+      <a class="tag1" data-name="tag-reactnative">reactnative</a>
+    
+      <a class="tag0" data-name="tag-upload">upload</a>
+    
+      <a class="tag0" data-name="tag-vue">vue</a>
+    
+      <a class="tag0" data-name="tag-vueresouce">vueresouce</a>
+    
+      <a class="tag0" data-name="tag-编译器">编译器</a>
+    
+      <a class="tag1" data-name="tag-vscode">vscode</a>
+    
+      <a class="tag0" data-name="tag-vue-watch">vue-watch</a>
+    
+      <a class="tag1" data-name="tag-vue-awesome-swiper">vue-awesome-swiper</a>
+    
+      <a class="tag3" data-name="tag-mint-ui">mint-ui</a>
+    
+      <a class="tag2" data-name="tag-echarts">echarts</a>
+    
+      <a class="tag3" data-name="tag-跨域">跨域</a>
+    
+      <a class="tag2" data-name="tag-webapp">webapp</a>
+    
+      <a class="tag2" data-name="tag-微信小程序开发">微信小程序开发</a>
+    
+      <a class="tag1" data-name="tag-虚拟机">虚拟机</a>
+    
+      <a class="tag2" data-name="tag-angular">angular</a>
+    
+      <a class="tag0" data-name="tag-es6">es6</a>
+    
+      <a class="tag2" data-name="tag-node">node</a>
+    
+      <a class="tag1" data-name="tag-webpack">webpack</a>
+    
+      <a class="tag2" data-name="tag-css">css</a>
+    
+  </div>
+  
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-随笔">随笔</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/30/suibi/一个人的冬天/">一个人的冬天</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/suibi/年轻人的生活/">年轻人的生活</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-canvas">canvas</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/canvas/canvas/">Canvas</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-git">git</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/git/git/">git基础没操作教程</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-iframe">iframe</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/22/biancheng/iframe/父页面触发iframe中click事件/">父页面触发iframe中click事件</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-element">element</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/11/23/biancheng/element/Elemnt-ui爬坑之旅/">Elemnt-ui爬坑之旅</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-html">html</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/12/11/biancheng/html/模板引擎handlesbars/">模板引擎handlesbars</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Java">Java</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/02/24/biancheng/java/Java学习进阶-File类和IO流/">Java学习进阶-File类和IO流</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/01/12/biancheng/java/Java学习进阶-接口/">Java学习进阶-接口</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/12/18/biancheng/java/Java学习基础/">Java学习基础</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/01/06/biancheng/java/Java学习进阶-面向对象/">Java学习进阶-面向对象</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/02/14/biancheng/java/Java学习进阶-异常与多线程/">Java学习进阶-异常与多线程</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/01/07/biancheng/java/Java学习进阶-API/">Java学习进阶-API</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-js知识点">js知识点</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/29/biancheng/js/前端JS实现复制内容/">前端JS实现复制内容</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-面向对象">面向对象</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/30/biancheng/js-object/js-object/">面向对象总结</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Deepin">Deepin</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/17/biancheng/linux/Deepin-Linux-配置前段开发环境/">Deepin(Linux)配置前段开发环境</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Linux">Linux</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/17/biancheng/linux/Deepin-Linux-配置前段开发环境/">Deepin(Linux)配置前段开发环境</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-npm">npm</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/npm/npm/">npm&gulp基础知识</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-gulp">gulp</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/npm/npm/">npm&gulp基础知识</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-php">php</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/30/biancheng/php/php/">php</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-React">React</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/05/biancheng/react/React原型解析（JS组件模块化-复用）/">React原型解析（JS组件模块化-复用）</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/08/biancheng/react/React组件的生命周期/">React要点知识总结</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-reactnative">reactnative</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/11/biancheng/reactnative/react-native-爬坑记录/">react-native 爬坑记录</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-upload">upload</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/11/23/biancheng/upload/H5upload之点击图片实现上传功能/">H5upload之点击图片实现上传功能</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-vue">vue</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/21/biancheng/vue/Vue-resouce的使用注意点/">Vue-resouce的使用注意点</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/12/27/biancheng/vue/Vue-watch/">Vue-watch</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/11/13/biancheng/vue/Vue中同页面-路由-下如何实现点击按钮改变内容/">Vue中同页面(路由)下如何实现点击按钮改变内容</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/01/21/biancheng/vue/Vue兄弟组件之间通信传值/">Vue兄弟组件之间通信传值</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/29/biancheng/vue/vue-awesome-swiper的使用注意点/">vue-awesome-swiper的使用注意点</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/vue/mint-ui-Lazyload/">mint-ui-Lazyload的用法</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/04/23/biancheng/vue/vue中css样式文字溢出省略/">vue中css样式文字溢出省略</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/12/11/biancheng/vue/vue-打包后背景图片路径错误/">vue 打包后背景图片路径错误</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/20/biancheng/vue/vue中使用eachars/">vue中使用eachars</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/22/biancheng/vue/vue中反向代理解决跨域问题/">vue中反向代理解决跨域问题</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/10/26/biancheng/vue/vue中实现上拉加载/">Vue中实现上拉加载</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/02/26/biancheng/vue/vue中路由跳转及传参总结/">vue中路由跳转及传参总结</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/08/27/biancheng/vue/vue中的数据过滤/">vue中的数据过滤</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/01/27/biancheng/vue/vue获取dome元素爬坑之旅/">vue获取dome元素爬坑之旅</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/12/21/biancheng/vue/vue中路由跳转返回上一页还在原来位置实现技巧/">vue中路由跳转返回上一页还在原来位置实现技巧</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-vueresouce">vueresouce</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/21/biancheng/vue/Vue-resouce的使用注意点/">Vue-resouce的使用注意点</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-编译器">编译器</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/29/biancheng/study/vscode快捷键大全/">vscode快捷键大全</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-vscode">vscode</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/29/biancheng/study/vscode快捷键大全/">vscode快捷键大全</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-vue-watch">vue-watch</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/12/27/biancheng/vue/Vue-watch/">Vue-watch</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-vue-awesome-swiper">vue-awesome-swiper</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/29/biancheng/vue/vue-awesome-swiper的使用注意点/">vue-awesome-swiper的使用注意点</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-mint-ui">mint-ui</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/vue/mint-ui-Lazyload/">mint-ui-Lazyload的用法</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-echarts">echarts</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/20/biancheng/vue/vue中使用eachars/">vue中使用eachars</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-跨域">跨域</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/03/22/biancheng/vue/vue中反向代理解决跨域问题/">vue中反向代理解决跨域问题</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-webapp">webapp</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/09/06/biancheng/web/移动端问题总结/">移动端问题总结</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-微信小程序开发">微信小程序开发</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/weixin/微信小程序开发/">微信小程序开发</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-虚拟机">虚拟机</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/04/28/biancheng/xuniji/虚拟机安装教程（Linux）/">虚拟机安装教程（Linux）</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-angular">angular</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/29/biancheng/angular/angular/">Angular</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-es6">es6</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/30/biancheng/es6/es6/">ES6语法</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-node">node</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2018/05/02/biancheng/node/node服务搭建/">node服务搭建</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-webpack">webpack</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/04/09/biancheng/webpack/Webpack4学习笔记/">Webpack4学习笔记</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-css">css</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2020/05/28/biancheng/css/CSS记录点/">CSS记录点</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/tags/index.html'
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+      var tag = location.hash.replace('#', '')
+    if (tag) {
+      var tagId = "#tag-" + tag;
+      $("html, body").animate({
+        scrollTop: $(tagId).offset().top 
+      }, 400)
+    }
+  })();
+</script>
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

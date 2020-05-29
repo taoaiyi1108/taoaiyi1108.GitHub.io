@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      React要点知识总结 | 火骑小龙龙づ博客
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>火骑小龙龙づ博客</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div id="article-banner">
+  <h2>React要点知识总结</h2>
+  <p class="post-date">2018-03-08</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>明白React组件的生命周期就是这么简单</p>
+<a id="more"></a>
+<h5 id="React-要点知识总结"><a href="#React-要点知识总结" class="headerlink" title="React  要点知识总结:"></a>React  要点知识总结:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">- <span class="number">1.</span><span class="class"><span class="keyword">class</span> 创建 组件时 组件名必须首字母大写</span>;</span><br><span class="line">- <span class="number">2.</span>React中的on*的事件监听是能用在普通的HTML标签上，而不能用在组件标签上，而且这些事件的名称都采用驼峰命名;</span><br><span class="line">- <span class="number">3.</span>React中的on*的事件监听是能用在普通的HTML标签上，而不能用在组件标签上，而且这些事件的名称都采用驼峰命名;</span><br><span class="line">- <span class="number">4.</span><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">ParentClass</span> </span>&#123;...&#125; 前者继承了后者的方法;</span><br><span class="line">- <span class="number">5.</span>改变组件状态的时候不能通过<span class="keyword">this</span>.sate = xxx 这种方式来修改，一定要使用React提供的setState方法，它接受一个对象或者函数作为参数;</span><br><span class="line">- <span class="number">6.</span>调用setState的时候，React.js并不会马上修改state,而是把这个对象放到一个更新队列里面，稍后才会在队列中把新的状态提取出来合并到state当中，然后在触发组件更新。所以如果在setState之后使用新的state来做后续的运算就做不到了;</span><br><span class="line">- <span class="number">7.</span>使用 React.js 的时候，并不需要担心多次进行 setState 会带来性能问题;</span><br><span class="line">- <span class="number">8.</span>每个组件都可以接受一个 props 参数，它是一个对象，包含了所有你对这个组件的配置;</span><br><span class="line">- <span class="number">9.</span>props 传值，在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值，组件内部就可以通过 <span class="keyword">this</span>.props 来访问到这些配置参数;</span><br><span class="line">- <span class="number">10.</span>一个组件的行为、显示形态都可以用 props 来控制;</span><br><span class="line">- <span class="number">11.</span>defaultProps 对 props 中各个属性的默认配置;</span><br><span class="line">- <span class="number">12.</span>props不可变，一旦传入就不能改变;</span><br><span class="line">- <span class="number">13.</span>子组件向父组件传值：父组件 CommentApp 只需要通过 props 给子组件 CommentInput 传入一个回调函数。当用户点击发布按钮的时候，CommentInput 调用 props 中的回调函数并且将 state 传入该函数即可。</span><br><span class="line">- <span class="number">14.</span>React 组件生命周期</span><br><span class="line">    - a.挂在阶段;</span><br><span class="line">        - i.construct() <span class="comment">//组件自身的状态的初始化工作</span></span><br><span class="line">        - ii.componentWillMount() <span class="comment">//组件挂载开始之前，也就是在组件调用 render 方法之前调用：Ajax 数据的拉取操作、一些定时器的启动，清理，数据的清理</span></span><br><span class="line">        - iii.render() </span><br><span class="line">        - iv.DOM插入页面</span><br><span class="line">        - v.componentDidMount() <span class="comment">//组件挂载完成以后，也就是 DOM 元素已经插入页面后调用：DOM的动画</span></span><br><span class="line">    - b.更新阶段        - i.shouldComponentUpdate(nextProps, nextState) <span class="comment">//可以通过这个方法控制组件是否重新渲染。如果返回 false 组件就不会重新渲染</span></span><br><span class="line">        - ii.componentWillReceiveProps(nextProps) <span class="comment">//组件从父组件接收到新的 props 之前调用</span></span><br><span class="line">        - iii.componentWillUpdate() <span class="comment">//组件开始重新渲染之前调用。</span></span><br><span class="line">        - iv.componentDidUpdate() <span class="comment">//组件重新渲染并且把更改变更到真实的 DOM 以后调用。</span></span><br><span class="line">    - c.即将从页面中删除</span><br><span class="line">        - i.componentWillUnmount() <span class="comment">//组件对应的 DOM 元素从页面中删除之前调用。</span></span><br><span class="line">        - ii.从页面中删除 </span><br><span class="line">- <span class="number">15.</span>能不用ref就不用ref ，DOM，组件都可以添加ref;</span><br><span class="line">- <span class="number">16.</span><span class="keyword">this</span>.props.children;</span><br><span class="line">- <span class="number">17.</span>dangerouslySetInnerHTML传入一个对象，这个对象的 __html 的属性值就相当于innerHTML</span><br><span class="line">- <span class="number">18.</span>style  style=&#123;&#123;<span class="attr">color</span>:<span class="string">'red'</span>,<span class="attr">fontSize</span>:<span class="string">'12px'</span>&#125;&#125; 驼峰命名法</span><br><span class="line">- <span class="number">19.</span>isRequired  关键字来强制组件某个参数必须传入</span><br><span class="line">- <span class="number">20.</span>代码书写小贴士：</span><br><span class="line">    - a.组件的私有方法都用 _ 开头;</span><br><span class="line">    - b.所有事件监听的方法都用 handle 开头。</span><br><span class="line">    - c.把事件监听方法传给组件的时候，属性名用 on 开头</span><br><span class="line">    - d.组件的内容编写顺序如下</span><br><span class="line">        - i.static 开头的类属性，如 defaultProps、propTypes。</span><br><span class="line">        - ii.构造函数，<span class="keyword">constructor</span>。</span><br><span class="line">        - iii.getter/setter（还不了解的同学可以暂时忽略）。</span><br><span class="line">        - iv.组件生命周期。</span><br><span class="line">        - v._ 开头的私有方法。</span><br><span class="line">        - vi.事件监听方法，handle*。</span><br><span class="line">        - vii.render*开头的方法，有时候 render() 方法里面的内容会分开到不同函数里面进行，这些函数都以 render* 开头。</span><br><span class="line">        - viii.render() 方法 </span><br><span class="line">- 21.高阶组件：高阶组件就是一个函数（而不是一个组件），传给他一个组件，它返回一个新的组件;</span><br><span class="line">- 22.context 某个组件只要往自己的 context 里面放了某些状态，这个组件之下的所有子组件都直接访问这个状态而不需要通过中间组件的传递。一个组件的 context 只有它的子组件能够访问，它的父组件是不能访问到的，你可以理解每个组件的 context 就是瀑布的源头，只能往下流不能往上飞。</span><br><span class="line">- 23.纯函数：一个函数的返回结果只依赖于它的参数，并且在执行过程里面没有副作用，我们就把这个函数叫做纯函数;</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#React">
+    <span class="tag-code">React</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/03/05/biancheng/react/React原型解析（JS组件模块化-复用）/">
+        <span class="nav-arrow">← </span>
+        
+          React原型解析（JS组件模块化-复用）
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2018/03/20/biancheng/vue/vue中使用eachars/">
+        
+          vue中使用eachars
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/2018/03/08/biancheng/react/React组件的生命周期/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "taoaiyi1108";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "React要点知识总结",
+        owner: "taoaiyi1108",
+        repo: "taoaiyi1108.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://taoaiyi1108.github.io/2018/03/08/biancheng/react/React组件的生命周期/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
