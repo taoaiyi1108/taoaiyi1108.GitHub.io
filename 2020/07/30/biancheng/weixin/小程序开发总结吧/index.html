@@ -318,7 +318,15 @@ books: [
 <p>小程序之间跳转</p>
 </blockquote>
 <pre><code>- 必须关联同一个公众号
-</code></pre></section>
+</code></pre><blockquote>
+<p>点击态(解决部分机型图片点击延迟问题)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- view组件的hover-class hover-stay-time 一把最大2000(ms)就可以了 一般就是300</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>全局css 使用注意点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 由于组件是一个封闭的独立模块，app.wxss中定义的全局css样式在组件中直接使用是无效的</span><br><span class="line">- 组好使用 @import css 导入的方式</span><br></pre></td></tr></table></figure>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -343,6 +351,13 @@ books: [
         
       </a>
     
+    
+      <a class="nav-right" href="/2020/09/26/biancheng/serve/nginx-部署服务/">
+        
+          nginx 部署服务
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
