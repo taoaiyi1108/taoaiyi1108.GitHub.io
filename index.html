@@ -1,427 +1,377 @@
-<!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>火骑小龙龙づ博客</title>
+  <meta name="author" content="火骑小龙龙">
+  
   <meta name="description" content="火骑小龙龙づ博客 vue mint-ui js html css 前端">
-  <meta name="keyword" content="hexo-theme, vuejs">
   
-    <link rel="shortcut icon" href="/css/images/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
   
-  <title>
-    
-      火骑小龙龙づ博客
-    
-  </title>
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <meta property="og:site_name" content="火骑小龙龙づ博客">
+
+  
+    <meta property="og:image" content="">
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
   <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
-  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
-<script src="/js/gitment.js"></script>
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
-  
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
-
 
 </head>
-<div class="wechat-share">
-  <img src="/css/images/logo.png">
-</div>
 
-  <body>
-    <header class="header fixed-header">
-  <div class="header-container">
-    <a class="home-link" href="/">
-      <div class="logo"></div>
-      <span>火骑小龙龙づ博客</span>
-    </a>
-    <ul class="right-list">
-      
-        <li class="list-item">
-          
-            <a href="/" class="item-link active">Home</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/tags" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/categories" class="item-link">Categories</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/archives" class="item-link">Archives</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/project" class="item-link">Project</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/about" class="item-link">About</a>
-          
-        </li>
-      
-    </ul>
-    <div class="menu">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </div>
-    <div class="menu-mask">
-      <ul class="menu-list">
-        
-          <li class="menu-item">
-            
-              <a href="/" class="menu-link mobile-active">Home</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/tags" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/categories" class="menu-link">Categories</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/archives" class="menu-link">Archives</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/project" class="menu-link">Project</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/about" class="menu-link">About</a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">火骑小龙龙づ博客</a></h1>
+  <h2><a href="/">我的数学是体育老师教的</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
 </header>
-
-
-    <main class="app-body">
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-blog/2021/websocket-utils" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/09/26/biancheng/serve/Springboot-构建http服务，返回的http行是-HTTP-1-1-200/">Springboot 构建http服务，返回的http行是 HTTP/1.1 200</a>
-      </h2>
-      <p class="article-date">September 26, 2020</p>
+  <div class="post-content">
+    <header>
       
-        
-  <a href="/tags#Springboot nuxt">
-    <span class="tag-code">Springboot nuxt</span>
-  </a>
-
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-06T00:56:31.560Z"><a href="/2021/01/06/blog/2021/websocket-utils/">2021-01-06</a></time>
       
-      <div class="article-summary">
-        
-          <p>nuxt开发IE http 异常</p>
-        
-      </div>
-      <a class="more" href="/2020/09/26/biancheng/serve/Springboot-构建http服务，返回的http行是-HTTP-1-1-200/">Read more</a>
-    </article>
+      
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/09/26/biancheng/serve/nginx-部署服务/">nginx 部署服务</a>
-      </h2>
-      <p class="article-date">September 26, 2020</p>
-      
-        
-  <a href="/tags#nginx">
-    <span class="tag-code">nginx</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>nginx 在项目部署过程中的操作<br>
-        
-      </p></div>
-      <a class="more" href="/2020/09/26/biancheng/serve/nginx-部署服务/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/07/30/biancheng/weixin/小程序开发总结吧/">小程序开发总结吧</a>
-      </h2>
-      <p class="article-date">July 30, 2020</p>
-      
-        
-  <a href="/tags#微信小程序">
-    <span class="tag-code">微信小程序</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>文章摘要</p>
-        
-      </div>
-      <a class="more" href="/2020/07/30/biancheng/weixin/小程序开发总结吧/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/06/08/biancheng/web/前端工具包汇总/">前端工具包汇总</a>
-      </h2>
-      <p class="article-date">June 8, 2020</p>
-      
-        
-  <a href="/tags#web utils">
-    <span class="tag-code">web utils</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>前端工具包汇总，没办法记不住</p>
-        
-      </div>
-      <a class="more" href="/2020/06/08/biancheng/web/前端工具包汇总/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/06/08/biancheng/webapi/Web-API-不知道的就记录/">Web API 不知道的就记录</a>
-      </h2>
-      <p class="article-date">June 8, 2020</p>
-      
-        
-  <a href="/tags#Web API">
-    <span class="tag-code">Web API</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>Web API 不知道的就记录</p>
-        
-      </div>
-      <a class="more" href="/2020/06/08/biancheng/webapi/Web-API-不知道的就记录/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/06/01/biancheng/vue/Vue中修改数组的某一项不触发v-for数据更新/">Vue中修改数组的某一项不触发v-for数据更新</a>
-      </h2>
-      <p class="article-date">June 1, 2020</p>
-      
-        
-  <a href="/tags#vue">
-    <span class="tag-code">vue</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-官网Vue-set
-123&lt;ul&gt;    &lt;li v-for="(item, index) in list" :key="index" @click="changeItemName(index)" &gt;&#123;&#123;item.name&#125;&#125; ...
-        
-      </div>
-      <a class="more" href="/2020/06/01/biancheng/vue/Vue中修改数组的某一项不触发v-for数据更新/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2020/05/28/biancheng/css/CSS记录点/">CSS记录点</a>
-      </h2>
-      <p class="article-date">May 28, 2020</p>
-      
-        
-  <a href="/tags#css">
-    <span class="tag-code">css</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>记录开发中不常用，但又很有效果的CSS，或者CSS布局上的技巧</p>
-        
-      </div>
-      <a class="more" href="/2020/05/28/biancheng/css/CSS记录点/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2019/04/09/biancheng/webpack/Webpack4学习笔记/">Webpack4学习笔记</a>
-      </h2>
-      <p class="article-date">April 9, 2019</p>
-      
-        
-  <a href="/tags#webpack">
-    <span class="tag-code">webpack</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-Webpack核心定义
-webpack是一个模块打包工具
-webpack支持 ES moudles 模块引入方式 Common JS 模块引入规范 CMD ADM
-
-Webpack环境搭建
-npm init 初始化项目(询问需要手动配置) 符合node规范 npm init -y 默认配置 ...
-        
-      </div>
-      <a class="more" href="/2019/04/09/biancheng/webpack/Webpack4学习笔记/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2019/02/24/biancheng/java/Java学习进阶-File类和IO流/">Java学习进阶-File类和IO流</a>
-      </h2>
-      <p class="article-date">February 24, 2019</p>
-      
-        
-  <a href="/tags#Java">
-    <span class="tag-code">Java</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>Java进阶学习-File类和IO流</p>
-        
-      </div>
-      <a class="more" href="/2019/02/24/biancheng/java/Java学习进阶-File类和IO流/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2019/02/14/biancheng/java/Java学习进阶-异常与多线程/">Java学习进阶-异常与多线程</a>
-      </h2>
-      <p class="article-date">February 14, 2019</p>
-      
-        
-  <a href="/tags#Java">
-    <span class="tag-code">Java</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <p>Java进阶学习-异常与多线程</p>
-        
-      </div>
-      <a class="more" href="/2019/02/14/biancheng/java/Java学习进阶-异常与多线程/">Read more</a>
-    </article>
+    <h1 class="title"><a href="/2021/01/06/blog/2021/websocket-utils/">WebSocket 工具类</a></h1>
   
 
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>简易封装WebSocket工具类<br>
+      
+    </p></div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/06/blog/2021/websocket-utils/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-blog/2021/date-format" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
   
-    <div class="guide-pager">
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-05T06:08:05.852Z"><a href="/2021/01/05/blog/2021/date-format/">2021-01-05</a></time>
+      
+      
   
-    <a class="unvisible" href="/"><span class="page-arrow">←</span> Prev</a>
+    <h1 class="title"><a href="/2021/01/05/blog/2021/date-format/">Date format 时间格式化</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>自己封装一些时间格式化脚本，以备不时之需</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/05/blog/2021/date-format/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-blog/2021/storage-utils" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-05T02:16:46.423Z"><a href="/2021/01/05/blog/2021/storage-utils/">2021-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2021/01/05/blog/2021/storage-utils/">Storage 工具类</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>简易封装Storage本地缓存工具类<br>
+      
+    </p></div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/05/blog/2021/storage-utils/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-blog/2021/vue-global-events" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-05T01:34:57.644Z"><a href="/2021/01/05/blog/2021/vue-global-events/">2021-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2021/01/05/blog/2021/vue-global-events/">Vue全局事件通信</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>简易封装Vue全局通信事件<br>
+      
+    </p></div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/05/blog/2021/vue-global-events/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-blog/2021/vue-echarts-component" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-05T00:56:27.643Z"><a href="/2021/01/05/blog/2021/vue-echarts-component/">2021-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2021/01/05/blog/2021/vue-echarts-component/">Echarts Vue 组件</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>一个用Vue简单封装的Vue组件，以备不时之需</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/05/blog/2021/vue-echarts-component/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-blog/2021/only-office" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-01-04T07:03:31.515Z"><a href="/2021/01/04/blog/2021/only-office/">2021-01-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2021/01/04/blog/2021/only-office/">only-office使用心得</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>这几天遇到一个协同办公业务，通过一番面向百度编程之后，用到了<code>only-office</code></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2021/01/04/blog/2021/only-office/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-article/2020" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-12-30T07:07:59.000Z"><a href="/2020/12/30/article/2020/">2020-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2020/12/30/article/2020/">2020</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>都是打工人，自知打工苦</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2020/12/30/article/2020/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
   
   
-    <a href="/page/2/">Next<span class="page-arrow"> →</span></a>
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="as_sitesearch" value="taoaiyi1108.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Kategorien</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/2021/">2021</a><small>6</small></li>
+  
+    <li><a href="/categories/随笔/">随笔</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/date/">date</a><small>1</small></li>
+  
+    <li><a href="/tags/echarts/">echarts</a><small>1</small></li>
+  
+    <li><a href="/tags/format/">format</a><small>1</small></li>
+  
+    <li><a href="/tags/onlyoffice/">onlyoffice</a><small>1</small></li>
+  
+    <li><a href="/tags/storage/">storage</a><small>1</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>2</small></li>
+  
+    <li><a href="/tags/websocket/">websocket</a><small>1</small></li>
+  
+    <li><a href="/tags/文章/">文章</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 火骑小龙龙
   
 </div>
-  
-</main>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
-    <div class="scroll-top">
-  <span class="arrow-icon"></span>
-</div>
-    <footer class="app-footer">
-  <p class="copyright">
-    &copy; 2020 火骑小龙龙 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-    <br>
-    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
-  </p>
-</footer>
 
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script>
-  function async(u, c) {
-    var d = document, t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
-  }
-</script>
-<script>
-  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-    FastClick.attach(document.body);
-  })
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
-<script>
-  var hasLine = 'true';
-  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
-    $('figure pre').each(function(i, block) {
-      var figure = $(this).parents('figure');
-      if (hasLine === 'false') {
-        figure.find('.gutter').hide();
-      }
-      var lang = figure.attr('class').split(' ')[1] || 'code';
-      var codeHtml = $(this).html();
-      var codeTag = document.createElement('code');
-      codeTag.className = lang;
-      codeTag.innerHTML = codeHtml;
-      $(this).attr('class', '').empty().html(codeTag);
-      figure.attr('data-lang', lang.toUpperCase());
-      hljs.highlightBlock(block);
-    });
-  })
-</script>
-<!-- Baidu Tongji -->
-
-<script src="/js/script.js"></script>
-  </body>
+</body>
 </html>
