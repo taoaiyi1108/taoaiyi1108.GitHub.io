@@ -63,6 +63,38 @@
         <p>书到用时方恨少，事非经过不知难</p>
 <a id="more"></a>
 <p>前几天帮别人开发了一个Ding Ding小程序，说实在的也是第一次开发这类业务，临时抱佛脚，赶鸭子上架，虽然很痛苦，可收获也是满满的</p>
+<h4 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h4><ul>
+<li><p>主要是用于智能工地上从上至下，对于项目问题和工程进度的把控及问题反馈处理。</p>
+<ul>
+<li>项目新建</li>
+<li>项目审批</li>
+<li>项目流程流转</li>
+<li>项目人员配置</li>
+<li>项目问题提交</li>
+<li>项目问题处理</li>
+<li>项目位置导航</li>
+</ul>
+</li>
+<li><p>公司日常办公基于钉钉，客户提出的要求就是做一个钉钉上的程序， 我这边选择的是钉钉企业内部应用</p>
+</li>
+</ul>
+<h4 id="开车指南"><a href="#开车指南" class="headerlink" title="开车指南"></a>开车指南</h4><ol>
+<li>钉钉的小程序和微信的基本差不多，但生态还是差的有点多，所以说很多业务实现起来没有现成的组件使用，需要自己造， 当然了你可以借鉴官方提供的例子，里面也是有很多好用的DEMO</li>
+</ol>
+<h4 id="登录权限"><a href="#登录权限" class="headerlink" title="登录权限"></a>登录权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户登录 ---&gt; 本地缓存用户信息 ---&gt; 不同权限用户tabbar不同</span><br></pre></td></tr></table></figure>
+<p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-1.png" alt="权限1用户"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-3.png" alt="权限2用户， 虽然和权限1的tabBar名称一样，但是跳转的页面不一样"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-2.png" alt="权限3用户"></p>
+<ul>
+<li>刚开始我想到的是微信小程序不是有自定义tabBar么，就采用这套方案</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">调用dd.addTabBarItem添加tabBar页面。</span><br><span class="line">调用dd.removeTabBarItem移除tabBar页面。</span><br><span class="line"></span><br><span class="line">注意 使用该接口请注意：</span><br><span class="line">    addTabBarItem 调用时，要保证当前小程序展示的是TabBar上的页面；否则调用会报错，错误码 11。</span><br><span class="line">    PS: 我是有原则的人，不是以想用就可以用的</span><br></pre></td></tr></table></figure>
+<p>好吧你有原则， 我可以让你变得无原则，按照官方的API修改后，可以实现不同用户权限展示不同的tabBar，但是问题又来了</p>
+<p>问题：用户退出登录，不关闭小程序，直接更换账号登录，直接给我把2个不同权限用户的tabBar全展示出来</p>
+<p>好家伙还好最多5个，不然你还给起飞了不成，排查后发现是缓存造成的，只有退出小程序缓存才可以清除，这咋搞</p>
+<p>那这条路子是走不通了，只能自己通过模板的形式自定义了，话不多说直接开干</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"tabbar-1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"tabbar"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"tabbar-item"</span> <span class="attr">a:for</span>=<span class="string">"&#123;&#123;tabbarlist&#125;&#125;"</span> <span class="attr">data-url</span>=<span class="string">"&#123;&#123;item.pagePath&#125;&#125;"</span> <span class="attr">onTap</span>=<span class="string">"tabbarTo"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"tabbar-item_icon"</span> <span class="attr">mode</span>=<span class="string">"scaleToFill"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;active == item.index ? item.activeIcon : item.icon&#125;&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"tabbar-item_text"</span> <span class="attr">style</span>=<span class="string">"color: &#123;&#123;active == item.index?'#3780F0':'#737373'&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    tabbarTo(e) &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; url &#125; = e.target.dataset</span><br><span class="line">        dd.reLaunch(&#123; url &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">        reLaunch  调用dd.reLaunch关闭当前所有页面，跳转到应用内的某个指定页面。  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        不使用 dd.redirectTo和dd.navigateTo的原因是因为页面跳转后都会返回箭头，展示逻辑和原生的tabBar不太一样，</span></span><br><span class="line"><span class="comment">        但使用 dd.reLaunch 就会失去缓存，性能上有点弱</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">"/template/tabbar/index.axml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">a:if</span>=<span class="string">"&#123;&#123;location == '1'&#125;&#125;"</span> <span class="attr">is</span>=<span class="string">"tabbar-1"</span> <span class="attr">data</span>=<span class="string">"&#123;&#123;active: 1, tabbarlist: tabbarlist&#125;&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>总结：自定义tabbar模板，使用dd.reLaunch进行切换</p>
 
       
     </div>
