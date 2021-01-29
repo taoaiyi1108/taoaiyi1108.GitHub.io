@@ -63,7 +63,10 @@
         <p>书到用时方恨少，事非经过不知难</p>
 <a id="more"></a>
 <p>前几天帮别人开发了一个Ding Ding小程序，说实在的也是第一次开发这类业务，临时抱佛脚，赶鸭子上架，虽然很痛苦，可收获也是满满的</p>
-<h4 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h4><ul>
+<blockquote>
+<p>业务背景</p>
+</blockquote>
+<ul>
 <li><p>主要是用于智慧工地，从上至下对于项目问题和工程进度的把控及问题反馈处理。</p>
 <ul>
 <li>项目新建</li>
@@ -79,10 +82,16 @@
 <li><p>公司日常办公基于钉钉，客户提出的要求就是做一个钉钉上的程序， 我这边选择的是钉钉企业内部应用</p>
 </li>
 </ul>
-<h4 id="开车指南"><a href="#开车指南" class="headerlink" title="开车指南"></a>开车指南</h4><ol>
+<blockquote>
+<p>开车指南</p>
+</blockquote>
+<ol>
 <li>钉钉的小程序和微信的基本差不多，但生态还是差的有点多，所以说很多业务实现起来没有现成的组件使用，需要自己造， 当然了你可以借鉴官方提供的例子，里面也是有很多好用的DEMO</li>
 </ol>
-<h4 id="登录权限"><a href="#登录权限" class="headerlink" title="登录权限"></a>登录权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户登录 ---&gt; 本地缓存用户信息 ---&gt; 不同权限用户tabbar不同 ---&gt; 跳转页面不同</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>登录权限</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户登录 ---&gt; 本地缓存用户信息 ---&gt; 不同权限用户tabbar不同 ---&gt; 跳转页面不同</span><br></pre></td></tr></table></figure>
 <p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-1.png" alt="权限1用户"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-3.png" alt="权限2用户， 虽然和权限1的tabBar名称一样，但是跳转的页面不一样"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-2.png" alt="权限3用户"></p>
 <ul>
 <li>刚开始我想到的是微信小程序不是有自定义tabBar么，就采用这套方案</li>
@@ -101,7 +110,10 @@
 <li>不使用 dd.redirectTo和dd.navigateTo的原因是因为页面跳转后都会返回箭头，展示逻辑和原生的tabBar不太一样</li>
 <li>使用dd.reLaunch进行切换就会失去缓存，页面每次都是查询加载，性能上有点弱</li>
 </ol>
-<h4 id="父组件调用子组件的方法-子组件传值给父组件"><a href="#父组件调用子组件的方法-子组件传值给父组件" class="headerlink" title="父组件调用子组件的方法, 子组件传值给父组件"></a>父组件调用子组件的方法, 子组件传值给父组件</h4><p>微信小程序中是有<code>triggerEvent</code>， 钉钉小程序中有所不同， 采用的是<code>props</code>的方式来实现</p>
+<blockquote>
+<p>父组件调用子组件的方法, 子组件传值给父组件</p>
+</blockquote>
+<p>微信小程序中是有<code>triggerEvent</code>， 钉钉小程序中有所不同， 采用的是<code>props</code>的方式来实现</p>
 <ul>
 <li>子组件</li>
 </ul>
