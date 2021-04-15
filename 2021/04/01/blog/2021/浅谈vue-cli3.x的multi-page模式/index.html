@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>浅谈vue-cli3.x的multi-page模式 | 刮大风我就回家</title>
+  <meta name="author" content="刮大风我就回家">
+  
+  <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="浅谈vue-cli3.x的multi-page模式">
+  <meta property="og:site_name" content="刮大风我就回家">
+
+  
+    <meta property="og:image" content="">
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">刮大风我就回家</a></h1>
+  <h2><a href="/">当你失去了对生命的敬畏，那就成了披着人皮的恶魔 qq173128525@live.com</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-blog/2021/浅谈vue-cli3.x的multi-page模式" class="h-entry post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-04-01T01:36:52.000Z"><a href="/2021/04/01/blog/2021/浅谈vue-cli3.x的multi-page模式/">2021-04-01</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">浅谈vue-cli3.x的multi-page模式</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>学以致用吧，总结归纳。</p>
+<a id="more"></a>
+<p>开始之前，说点题外话，见谅。</p>
+<p>18年吧，当时入职的时候，公司正在开发一个建筑方面的CMS项目，进去的时候，用的是vue-cli2.x启的项目。开发完成度已经接近百分之七十了，但是也遇到了很多问题，其中最头疼的问题就是:</p>
+<ul>
+<li>项目启动慢</li>
+<li>生产环境首屏加载慢，当然了这也是SPA（单页面）项目的通病，白屏现象严重影响产品体验感</li>
+</ul>
+<p>在磨合一周后主管让我去解决这个问题，（谁让咱面试的时候吹的水太多了呢，🐕），不过也不用担心，面向百度乃开发神技，哈哈，开个玩笑。</p>
+<p>总结分析了下，上述项目问题的原因我也略知七八：</p>
+<p>主要是项目庞大，好家伙，<code>.vue</code>文件都快<code>200+</code>，一个<code>npm run dev</code>（vue-cli2.x的启动命令）下去，<code>node</code>开动了，结合<code>webpack</code>的配置，哗啦哗啦，一股脑把加载的文件都要过一遍，加上七七八八的附件，“这头牛”有跑的快的理由吗，项目启动自然就慢。</p>
+<p>还有就是前端展示上是划分子系统，不同的子系统不同的菜单，但机制上还是揉在一起，只是通过逻辑去做了hidden。</p>
+<p>然后就是<code>build</code>之后，<code>chunk-vendors.js</code> 超2MB, 熟悉单页面加载机制的同学应该都明白了，首屏加载慢的原因了吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">我理解的SPA渲染机制：</span><br><span class="line"></span><br><span class="line">    第一步： http请求，server返回index.html，这个index.html很简单，就是一个 &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;，这也是SPA不利于SEO的原因</span><br><span class="line"></span><br><span class="line">    第二步：浏览器（broswer）加载渲染index.html，在渲染过程中，就要去加载执行chunk-vendors.js(Vue的逻辑)</span><br><span class="line"></span><br><span class="line">    第三步：执行chunk-vendors.js等一系列Vue逻辑的js文件，创建VDOM啊什么的</span><br><span class="line"></span><br><span class="line">    第四步：找到挂载点 #app，将VDOM装换成真实DOM插入DOM树，页面展示出来</span><br><span class="line"></span><br><span class="line">    首屏加载慢就出在了二、三步，加载vue逻辑文件要时间吧，vue逻辑文件执行要时间吧，在此时间过程中，如果index.html不做loading处理，其实就是一个空的div页面，白屏了。</span><br><span class="line"></span><br><span class="line">    当然了，也跟Broswer设备性能有一定的关系，不过现在不需要担心了，古董机很少了。想想向前辈，心痛啊。</span><br></pre></td></tr></table></figure>
+<p>怎么感觉和标题不符啊，瞎扯的远了。U•ェ•*U</p>
+<p>好，既然问题明了，那就着手解决。</p>
+<p>我给出的方案：</p>
+<ul>
+<li>升级 <code>vue-cli2.x</code> 至 <code>vue-cli3.x</code>， 新的东西自然有牛逼之处</li>
+<li>使用 <code>vue-cli3.x</code>中的 <code>multi-page</code>模式，也就是多页面，拆分项目。</li>
+</ul>
+<p>项目升级迁移在此就不过多赘述，因为每个人的手法不一，咱自己也是依葫芦画瓢，就不要误人子弟了。</p>
+<p>直接上前后效果对比</p>
+<p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-1.png?Expires=1618448679&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=TqBOGu5%2BwRaatHLl6Bzmw14tS90%3D" alt="普通模式打包后"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-2.png?Expires=1618448710&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=%2BYLg7kPlICcZQU2%2FWxjuqR5Tl%2BE%3D" alt="multi-page模式打包后"></p>
+<p>可以明显的看到<code>multi-page</code>模式打包后, 子系统都有着自己独立的文件目录，独立的<code>index.html</code></p>
+<p>看看线上：<br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-3.png?Expires=1618448725&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=pquYgjfHGeZa5g4GVzDJyViIwPQ%3D" alt="multi-page模式打包后"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-4.png?Expires=1618448736&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=YJ8smEIAZJHE4xPquaXvJY897MM%3D" alt="multi-page模式打包后"></p>
+<p>明白了吧，除了公用的js之外，不同子系统加载对应自己的js逻辑文件， 这样就可以缩减先前说到的二、三步骤的时间，如果拆分做到极致，是不是可以就秒加载了，问题不就解决了吗？ 🤭</p>
+<h1 id="multi-page实现过程"><a href="#multi-page实现过程" class="headerlink" title="multi-page实现过程"></a>multi-page实现过程</h1><p>如果不熟的<code>vue-cli3.x</code>的移步这里，<a href="https://cli.vuejs.org/zh/config/#pages" target="_blank" rel="noopener">传送门</a>，核心就是<code>vue-config.js</code>中的<code>pages</code>，最终要是实现这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">modelu.exports = &#123; </span><br><span class="line">     pages: &#123;</span><br><span class="line">        index: &#123;</span><br><span class="line">            <span class="comment">// page 的入口</span></span><br><span class="line">            entry: <span class="string">'src/pages/index/main.js'</span>,</span><br><span class="line">            <span class="comment">// 模板来源</span></span><br><span class="line">            template: <span class="string">'src/pages/index/index.html'</span>,</span><br><span class="line">            <span class="comment">// 在 dist/index.html 的输出</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>,</span><br><span class="line">            chunks: [<span class="string">'chunk-vendors'</span>, <span class="string">'index'</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        task: &#123;</span><br><span class="line">            <span class="comment">// page 的入口</span></span><br><span class="line">            entry: <span class="string">'src/pages/task/main.js'</span>,</span><br><span class="line">            <span class="comment">// 模板来源</span></span><br><span class="line">            template: <span class="string">'src/pages/task/index.html'</span>,</span><br><span class="line">            <span class="comment">// 在 dist/index.html 的输出</span></span><br><span class="line">            filename: <span class="string">'task.html'</span>,</span><br><span class="line">            chunks: [<span class="string">'chunk-vendors'</span>, <span class="string">'task'</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也就是<code>build</code>后就有了<code>index、task</code>两个文件夹， 但是问题又来了，我多一个子系统，我就要去这里维护一下，是不是很麻烦，有没有自动识别<code>pages</code>文件夹下子文件夹个数来自动组装<code>pages</code>对象数据。</p>
+<p>作为一个老油条，这个问题肯定要解决的啦。</p>
+<p>老样子，直接上成品：</p>
+<p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-5.png?Expires=1618448744&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=AAIwCSKJVuHhXovgCaAJGskFl3c%3D" alt="项目目录结构"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue-config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> resolve = <span class="function"><span class="params">dir</span> =&gt;</span> path.resolve(__dirname, dir)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    entry: <span class="string">'main.js'</span>,</span><br><span class="line">    html: <span class="string">'index.html'</span>,</span><br><span class="line">    pagesRoot: resolve(<span class="string">'src/pages'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getSubSystem = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> allSubSystem = []</span><br><span class="line">    <span class="keyword">const</span> findAllSubSystem = <span class="function">(<span class="params">source, allSubSystem</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 同步读取pages下的文件</span></span><br><span class="line">        <span class="keyword">const</span> files = fs.readdirSync(source) </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; files.length; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> filename = files[i]</span><br><span class="line">            <span class="comment">// 组装文件路径</span></span><br><span class="line">            <span class="keyword">const</span> fullname = path.join(source, filename) </span><br><span class="line">            <span class="comment">// 路径转化成 'bigint'型，便于下一步判断</span></span><br><span class="line">            <span class="keyword">const</span> stats = fs.statSync(source, filename) </span><br><span class="line">            <span class="comment">// 判断上面读取的到文件是否为文件夹， 不是文件夹直接跳过循环，算是个性能优化吧</span></span><br><span class="line">            <span class="keyword">if</span> (!stats.isDirectory()) <span class="keyword">break</span> </span><br><span class="line">            <span class="comment">// 判断目录是否真实有效， 也就是判断pages下的文件中有没有main.js</span></span><br><span class="line">            <span class="keyword">if</span> (fs.existsSync(<span class="string">`<span class="subst">$&#123;fullname&#125;</span>/<span class="subst">$&#123;config.entry&#125;</span>`</span>)) &#123; </span><br><span class="line">                allSubSystem.push(fullname)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    findAllSubSystem(config.pagesRoot, allSubSystem)</span><br><span class="line">    <span class="keyword">return</span> allSubSystem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getPages = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> pages = &#123;&#125;</span><br><span class="line">    getSubSystem().forEach(<span class="function"><span class="params">page</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 通过文件夹路径来截取文件夹名称，作为pages的属性</span></span><br><span class="line">        <span class="keyword">const</span> filename = page.slice(config.pagesRoot.length + <span class="number">1</span>)</span><br><span class="line">        pages[filename] = &#123;</span><br><span class="line">            entry: <span class="string">`<span class="subst">$&#123;page&#125;</span>/<span class="subst">$&#123;config.entry&#125;</span>`</span>,</span><br><span class="line">            template: <span class="string">`<span class="subst">$&#123;page&#125;</span>/<span class="subst">$&#123;config.html&#125;</span>`</span>,</span><br><span class="line">            filename: filename === <span class="string">'index'</span> ? config.html : <span class="string">`<span class="subst">$&#123;filename&#125;</span>/<span class="subst">$&#123;config.html&#125;</span>`</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> pages</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pages = getPages()</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    pages</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 整体思路就是： </span></span><br><span class="line"><span class="comment"> * 1. 利用node的fs读取pages下的文件，筛选出符合条件的文件夹</span></span><br><span class="line"><span class="comment"> * 2. 便利筛选出来的文件夹list，转换成js的对象</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 总结： 就是利用node完成了你手动完成的事情</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>什么？写的太水了，没看懂，没事，在看一个高手的，<a href="https://ddxg638.github.io/2019/08/11/vue-cli3-pages/" target="_blank" rel="noopener">传送门</a></p>
+<h1 id="继续搞"><a href="#继续搞" class="headerlink" title="继续搞"></a>继续搞</h1><p>这样就完了吗，还没有，项目既然划分了不同的子系统，那么就意味着不是所有的子系统都会用到，就好比微服务，既有公用部分，但是又可以独立运行。那么对于用不到的我就不去打包他，这样可以大大减小生产包的size。</p>
+<blockquote>
+<p>理解服务分包部署这个模式，去模仿。注意的是，项目结构上要提前做到公用部分抽离，单个系统可以独立运行。</p>
+</blockquote>
+<p>好了开始动手</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 说一下思路吧，之前一直说搞的，没搞： 🐕,ԾㅂԾ,,</span></span><br><span class="line"><span class="comment"> * 1. process.argv 获取 npm 命令上约定的参数值， eg: "npm run server -- system=a,b,c"</span></span><br><span class="line"><span class="comment"> * 2. 拿到system中的值，转换成数组，直接便利数组，组装pages就可以了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/vue/multi-page-6.png?Expires=1618448752&amp;OSSAccessKeyId=TMP.3KjEXATXPahqDBnPH1uhamFcnJD1jNGdMa77GovwvnXgXkAiC2GPjbcmG6CC5fC1puaf5CY4EW6Ht35zc9wig3J4A9cXfP&amp;Signature=%2F9WvZ73L9Ws2BzBXA9%2BD3GtvwAk%3D" alt="获取npm命令上携带的参数"></p>
+<p>这样的话就可以做到用到哪个子系统，打包和启动哪个。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/编程/">编程</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/element/">element</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://taoaiyi1108.github.io/2021/04/01/blog/2021/浅谈vue-cli3.x的multi-page模式/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="as_sitesearch" value="taoaiyi1108.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Kategorien</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/2021/">2021</a><small>9</small></li>
+  
+    <li><a href="/categories/编程/">编程</a><small>1</small></li>
+  
+    <li><a href="/categories/随笔/">随笔</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/date/">date</a><small>1</small></li>
+  
+    <li><a href="/tags/echarts/">echarts</a><small>1</small></li>
+  
+    <li><a href="/tags/element/">element</a><small>1</small></li>
+  
+    <li><a href="/tags/format/">format</a><small>1</small></li>
+  
+    <li><a href="/tags/onlyoffice/">onlyoffice</a><small>1</small></li>
+  
+    <li><a href="/tags/storage/">storage</a><small>1</small></li>
+  
+    <li><a href="/tags/view/">view</a><small>1</small></li>
+  
+    <li><a href="/tags/vue/">vue</a><small>3</small></li>
+  
+    <li><a href="/tags/websocket/">websocket</a><small>1</small></li>
+  
+    <li><a href="/tags/小程序/">小程序</a><small>1</small></li>
+  
+    <li><a href="/tags/文章/">文章</a><small>2</small></li>
+  
+    <li><a href="/tags/知识点/">知识点</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 刮大风我就回家
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
