@@ -1,150 +1,310 @@
-<!DOCTYPE HTML>
-<html lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>小程序 | 刮大风我就回家</title>
-  <meta name="author" content="刮大风我就回家">
-  
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
+  <meta name="keyword" content="hexo-theme, vuejs">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <link rel="shortcut icon" href="/css/images/logo.png">
   
-  <meta property="og:site_name" content="刮大风我就回家">
-
-  
-    <meta property="og:image" content="">
-  
-
-  <link rel="shortcut icon" href="/favicon.png">
-  
+  <title>
+    
+      刮大风我就回家
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
   
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
 
 </head>
-
-
-<body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">刮大风我就回家</a></h1>
-  <h2><a href="/">当你失去了对生命的敬畏，那就成了披着人皮的恶魔 qq173128525@live.com</a></h2>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
 </div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>刮大风我就回家</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories" class="item-link">Categories</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories" class="menu-link">Categories</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 </header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">小程序</h2>
 
 
-  <div class="archive">
+    <div id="article-banner">
+  <h2>Archives</h2>
+  <p class="post-date">文章归档（时间）</p>
+</div>
+<main class="app-body" id="archives">
+  
+  
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2021
+  </h1>
+  <div class="section-list">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2021-01-25T15:25:00.000Z"><a href="/2021/01/25/blog/2021/dd-xiaocengxu/">2021-01-25</a></time>
-            
-              <h1 class="title"><a href="/2021/01/25/blog/2021/dd-xiaocengxu/">DingDing小程序开发总结</a></h1>
-            
-          </header>
-        </div>
-      </article>
+    
+      <div class="section-list-item">
+        <a href="/2021/04/01/blog/2021/浅谈vue-cli3.x的multi-page模式/" class="archive-title">浅谈vue-cli3.x的multi-page模式</a>
+        <p class="archive-date">04-01</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/03/24/blog/2021/聊聊用React去搭建一个CMS项目的流程/" class="archive-title">聊聊用React去搭建一个CMS项目的流程</a>
+        <p class="archive-date">03-24</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/02/02/blog/2021/手撸一个webpack基础demo/" class="archive-title">手撸一个webpack基础demo</a>
+        <p class="archive-date">02-02</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/25/blog/2021/dd-xiaocengxu/" class="archive-title">DingDing小程序开发总结</a>
+        <p class="archive-date">01-25</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/21/blog/2021/summary/" class="archive-title">零散的知识点总结</a>
+        <p class="archive-date">01-21</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/12/blog/2021/view-images/" class="archive-title">vue图片放大查看器</a>
+        <p class="archive-date">01-12</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/06/article/2021年1月6日/" class="archive-title">2021年1月6日</a>
+        <p class="archive-date">01-06</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/06/blog/2021/websocket-utils/" class="archive-title">WebSocket 工具类</a>
+        <p class="archive-date">01-06</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/05/blog/2021/date-format/" class="archive-title">Date format 时间格式化</a>
+        <p class="archive-date">01-05</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/05/blog/2021/storage-utils/" class="archive-title">Storage 工具类</a>
+        <p class="archive-date">01-05</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/05/blog/2021/vue-global-events/" class="archive-title">Vue全局事件通信</a>
+        <p class="archive-date">01-05</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/05/blog/2021/vue-echarts-component/" class="archive-title">Echarts Vue 组件</a>
+        <p class="archive-date">01-05</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2021/01/04/blog/2021/only-office/" class="archive-title">only-office使用心得</a>
+        <p class="archive-date">01-04</p>
+      </div>
     
   </div>
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
-    <input type="hidden" name="as_sitesearch" value="taoaiyi1108.github.io">
-  </form>
-</div>
-
-
+</section>
   
-<div class="widget tag">
-  <h3 class="title">Kategorien</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/2021/">2021</a><small>9</small></li>
-  
-    <li><a href="/categories/编程/">编程</a><small>3</small></li>
-  
-    <li><a href="/categories/随笔/">随笔</a><small>2</small></li>
-  
-  </ul>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/date/">date</a><small>1</small></li>
-  
-    <li><a href="/tags/echarts/">echarts</a><small>1</small></li>
-  
-    <li><a href="/tags/element/">element</a><small>2</small></li>
-  
-    <li><a href="/tags/format/">format</a><small>1</small></li>
-  
-    <li><a href="/tags/onlyoffice/">onlyoffice</a><small>1</small></li>
-  
-    <li><a href="/tags/storage/">storage</a><small>1</small></li>
-  
-    <li><a href="/tags/view/">view</a><small>1</small></li>
-  
-    <li><a href="/tags/vue/">vue</a><small>3</small></li>
-  
-    <li><a href="/tags/webpack/">webpack</a><small>1</small></li>
-  
-    <li><a href="/tags/websocket/">websocket</a><small>1</small></li>
-  
-    <li><a href="/tags/小程序/">小程序</a><small>1</small></li>
-  
-    <li><a href="/tags/文章/">文章</a><small>2</small></li>
-  
-    <li><a href="/tags/知识点/">知识点</a><small>1</small></li>
-  
-  </ul>
-</div>
-
-</aside>
-    <div class="clearfix"></div>
+    <section class="time-section">
+  <h1 class="section-year">
+    2020
+  </h1>
+  <div class="section-list">
+    
+    
+      <div class="section-list-item">
+        <a href="/2020/12/30/article/2020/" class="archive-title">2020</a>
+        <p class="archive-date">12-30</p>
+      </div>
+    
   </div>
-  <footer id="footer" class="inner"><div class="alignleft">
+</section>
   
-  &copy; 2021 刮大风我就回家
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+</main>
 
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script>
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+  (function () {
+    var url = 'http://taoaiyi1108.github.io/tags/小程序/index.html';
+      $('#article-banner').geopattern(url); // 背景色
+    $('.header').removeClass('fixed-header');
+  })();
+</script>
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 刮大风我就回家 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    感谢大神 <a href="https://github.com/yanm1ng" target="_blank">yanm1ng</a> 对本博客的技术支持
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
 </script>
 
-</body>
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
 </html>
