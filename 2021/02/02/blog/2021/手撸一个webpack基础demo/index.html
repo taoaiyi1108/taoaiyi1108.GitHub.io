@@ -162,7 +162,7 @@
   <article class="post-article">
     <section class="markdown-content"><p>没事了，搞搞，说不定有不一样的收获</p>
 <a id="more"></a>
-<h2 id="Webpack5-基础踩坑记录-代码-zip"><a href="#Webpack5-基础踩坑记录-代码-zip" class="headerlink" title="Webpack5 基础踩坑记录 代码.zip"></a>Webpack5 基础踩坑记录 <a href="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/webpack/webpack-juejin-learn.zip" target="_blank" rel="noopener">代码.zip</a></h2><h3 id="dev启动配置"><a href="#dev启动配置" class="headerlink" title="dev启动配置"></a>dev启动配置</h3><p>这是<code>webpack4.x</code>的写法，依赖有<code>webpack-cli webpack-dev-server</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack-dev-server --config webpack.config.js"</span><br></pre></td></tr></table></figure></p>
+<h3 id="Webpack5-基础踩坑记录-代码-zip"><a href="#Webpack5-基础踩坑记录-代码-zip" class="headerlink" title="Webpack5 基础踩坑记录 代码.zip"></a>Webpack5 基础踩坑记录 <a href="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/webpack/webpack-juejin-learn.zip" target="_blank" rel="noopener">代码.zip</a></h3><h4 id="dev启动配置"><a href="#dev启动配置" class="headerlink" title="dev启动配置"></a>dev启动配置</h4><p>这是<code>webpack4.x</code>的写法，依赖有<code>webpack-cli webpack-dev-server</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack-dev-server --config webpack.config.js"</span><br></pre></td></tr></table></figure></p>
 <p>然而使用<code>webpack5.x</code>构建项目的时候，就会出现这样的错误, <code>Cannot find module &#39;webpack-cli/bin/config-yargs&#39;</code>, 原因是 webpack-cli与webpack-dev-server版本不兼容；</p>
 <p>解决方法：<a href="https://www.zihanzy.com/articles/305" target="_blank" rel="noopener">高手指点</a></p>
 <ul>
@@ -170,20 +170,20 @@
 <li>最新的webpack-cli已经包含了webpack-dev-server的功能，其实还是要安装<code>webpack-cli</code>和<code>webpack-dev-server</code>, 不过都是最新的版本，如果在执行 <code>npm i @webpack-cli/serve -D</code>, 前边2个以来，会有提示，直接回车就可以了。完成后启动命令有所改变。</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack serve --config webpack.config.js"</span><br></pre></td></tr></table></figure>
-<h2 id="Webapck-plugin-功能"><a href="#Webapck-plugin-功能" class="headerlink" title="Webapck-plugin 功能"></a>Webapck-plugin 功能</h2><ul>
+<h3 id="Webapck-plugin-功能"><a href="#Webapck-plugin-功能" class="headerlink" title="Webapck-plugin 功能"></a>Webapck-plugin 功能</h3><ul>
 <li><code>clean-webpack-plugin</code> 每次执行npm run build 会发现dist文件夹里会残留上次打包的文件，这里我们推荐一个plugin来帮我们在打包输出前清空文件夹clean-webpack-plugin</li>
 <li><code>autoprefixer</code> css前缀</li>
 <li><code>mini-css-extract-plugin</code> 打包后css从js中抽离出来</li>
 <li><code>extract-text-webpack-plugin</code> <code>webpack4</code>后官方建议使用<code>mini-css-extract-plugin</code></li>
 </ul>
-<h2 id="Loader使用技巧-官方文档"><a href="#Loader使用技巧-官方文档" class="headerlink" title="Loader使用技巧 官方文档"></a>Loader使用技巧 <a href="https://webpack.docschina.org/concepts/loaders/#inline" target="_blank" rel="noopener">官方文档</a></h2><ul>
+<h3 id="Loader使用技巧-官方文档"><a href="#Loader使用技巧-官方文档" class="headerlink" title="Loader使用技巧 官方文档"></a>Loader使用技巧 <a href="https://webpack.docschina.org/concepts/loaders/#inline" target="_blank" rel="noopener">官方文档</a></h3><ul>
 <li>内联方式<code>import Styles from &#39;style-loader!css-loader?modules!./styles.css&#39;;</code></li>
 </ul>
-<h2 id="CSS-处理"><a href="#CSS-处理" class="headerlink" title="CSS 处理"></a>CSS 处理</h2><ul>
+<h3 id="CSS-处理"><a href="#CSS-处理" class="headerlink" title="CSS 处理"></a>CSS 处理</h3><ul>
 <li><code>postcss-loader</code>配合<code>autoprefixer</code>添加css前缀，处理兼容性</li>
 <li><code>mini-css-extract-plugin</code> 打包后css从js中抽离出来</li>
 </ul>
-<h2 id="用babel转义js文件"><a href="#用babel转义js文件" class="headerlink" title="用babel转义js文件"></a>用babel转义js文件</h2><ul>
+<h3 id="用babel转义js文件"><a href="#用babel转义js文件" class="headerlink" title="用babel转义js文件"></a>用babel转义js文件</h3><ul>
 <li><code>babel-loader</code> <code>babel-core</code><ul>
 <li><code>babel-loader</code>只会将 ES6/7/8语法转换为ES5语法，但是对新api并不会转换 例如(promise、Generator、Set、Maps、Proxy等),此时我们需要借助<code>babel-polyfill</code>来帮助我们转换</li>
 <li>注意 <code>babel-loader</code>与<code>babel-core</code>的版本对应关系</li>
@@ -194,10 +194,10 @@
 </ol>
 </li>
 </ul>
-<h2 id="学习地址"><a href="#学习地址" class="headerlink" title="学习地址"></a>学习地址</h2><ul>
+<h3 id="学习地址"><a href="#学习地址" class="headerlink" title="学习地址"></a>学习地址</h3><ul>
 <li>这篇教程写的挺好的，不过有些东西还需要自己的实践踩坑，<a href="https://juejin.cn/post/6844904031240863758" target="_blank" rel="noopener">传送门</a></li>
 </ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><ul>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><ul>
 <li><code>webpack</code>真的是难啃啊</li>
 <li>学好<code>english</code>很重要，不然文档看的你怀疑人生</li>
 </ul>
