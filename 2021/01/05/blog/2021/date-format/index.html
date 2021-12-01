@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
@@ -16,13 +16,17 @@
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/plugins/gitment.css">
+
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
   <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
+  
+<script src="/js/qrious.js"></script>
 <script src="/js/gitment.js"></script>
+
   
   
     <!-- MathJax support START -->
@@ -49,9 +53,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -161,20 +165,23 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>自己封装一些时间格式化脚本，以备不时之需</p>
-<a id="more"></a>
-<p>时间格式化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> dateformat = <span class="function"><span class="keyword">function</span> (<span class="params">format, fmt</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">date, fmt</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">            fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (date.getFullYear() + <span class="string">''</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> o = &#123;</span><br><span class="line">            <span class="string">'M+'</span>: date.getMonth() + <span class="number">1</span>,</span><br><span class="line">            <span class="string">'d+'</span>: date.getDate(),</span><br><span class="line">            <span class="string">'h+'</span>: date.getHours(),</span><br><span class="line">            <span class="string">'m+'</span>: date.getMinutes(),</span><br><span class="line">            <span class="string">'s+'</span>: date.getSeconds()</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(<span class="subst">$&#123;k&#125;</span>)`</span>).test(fmt)) &#123;</span><br><span class="line">                <span class="keyword">let</span> str = o[k] + <span class="string">''</span>;</span><br><span class="line">                fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length === <span class="number">1</span>) ? str : padLeftZero(str));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fmt;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">padLeftZero</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">'00'</span> + str).substr(str.length);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> date = format ? <span class="keyword">new</span> <span class="built_in">Date</span>(format) : <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">return</span> formatDate(date, fmt || <span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用法 */</span></span><br><span class="line">dateformat(<span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="string">"yyyy年MM月dd日 hh:mm:ss"</span>) <span class="comment">// 2020年12月31号 12:59:59</span></span><br></pre></td></tr></table></figure></p>
-<p>星期格式化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> weekformat = <span class="function"><span class="keyword">function</span> (<span class="params">formart</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> weeklist = [<span class="string">'日'</span>, <span class="string">'一'</span>, <span class="string">'二'</span>, <span class="string">'三'</span>, <span class="string">'四'</span>, <span class="string">'五'</span>, <span class="string">'六'</span>]</span><br><span class="line">    <span class="keyword">const</span> week = formart ? <span class="keyword">new</span> <span class="built_in">Date</span>().getDay() : <span class="keyword">new</span> <span class="built_in">Date</span>().getDay()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`星期<span class="subst">$&#123;weeklist[week]&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用法 */</span></span><br><span class="line">dateformat(<span class="keyword">new</span> <span class="built_in">Date</span>()) <span class="comment">//星期四</span></span><br></pre></td></tr></table></figure></p>
-</section>
+<span id="more"></span>
+
+<p>时间格式化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> dateformat = <span class="function"><span class="keyword">function</span> (<span class="params">format, fmt</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">date, fmt</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">            fmt = fmt.replace(<span class="built_in">RegExp</span>.$1, (date.getFullYear() + <span class="string">&#x27;&#x27;</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$1.length));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> o = &#123;</span><br><span class="line">            <span class="string">&#x27;M+&#x27;</span>: date.getMonth() + <span class="number">1</span>,</span><br><span class="line">            <span class="string">&#x27;d+&#x27;</span>: date.getDate(),</span><br><span class="line">            <span class="string">&#x27;h+&#x27;</span>: date.getHours(),</span><br><span class="line">            <span class="string">&#x27;m+&#x27;</span>: date.getMinutes(),</span><br><span class="line">            <span class="string">&#x27;s+&#x27;</span>: date.getSeconds()</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(<span class="subst">$&#123;k&#125;</span>)`</span>).test(fmt)) &#123;</span><br><span class="line">                <span class="keyword">let</span> str = o[k] + <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">                fmt = fmt.replace(<span class="built_in">RegExp</span>.$1, (<span class="built_in">RegExp</span>.$1.length === <span class="number">1</span>) ? str : padLeftZero(str));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fmt;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">padLeftZero</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&#x27;00&#x27;</span> + str).substr(str.length);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> date = format ? <span class="keyword">new</span> <span class="built_in">Date</span>(format) : <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">return</span> formatDate(date, fmt || <span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用法 */</span></span><br><span class="line">dateformat(<span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="string">&quot;yyyy年MM月dd日 hh:mm:ss&quot;</span>) <span class="comment">// 2020年12月31号 12:59:59</span></span><br></pre></td></tr></table></figure>
+
+<p>星期格式化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> weekformat = <span class="function"><span class="keyword">function</span> (<span class="params">formart</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> weeklist = [<span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;一&#x27;</span>, <span class="string">&#x27;二&#x27;</span>, <span class="string">&#x27;三&#x27;</span>, <span class="string">&#x27;四&#x27;</span>, <span class="string">&#x27;五&#x27;</span>, <span class="string">&#x27;六&#x27;</span>]</span><br><span class="line">    <span class="keyword">const</span> week = formart ? <span class="keyword">new</span> <span class="built_in">Date</span>().getDay() : <span class="keyword">new</span> <span class="built_in">Date</span>().getDay()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`星期<span class="subst">$&#123;weeklist[week]&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用法 */</span></span><br><span class="line">dateformat(<span class="keyword">new</span> <span class="built_in">Date</span>()) <span class="comment">//星期四</span></span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#date">
+  <a href="/tags#date" >
     <span class="tag-code">date</span>
   </a>
 
-  <a href="/tags#format">
+  <a href="/tags#format" >
     <span class="tag-code">format</span>
   </a>
 
@@ -370,6 +377,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
@@ -16,13 +16,17 @@
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/plugins/gitment.css">
+
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
   <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
+  
+<script src="/js/qrious.js"></script>
 <script src="/js/gitment.js"></script>
+
   
   
     <!-- MathJax support START -->
@@ -49,9 +53,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -161,7 +165,8 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>书到用时方恨少，事非经过不知难</p>
-<a id="more"></a>
+<span id="more"></span>
+
 <p>前几天帮别人开发了一个Ding Ding小程序，说实在的也是第一次开发这类业务，临时抱佛脚，赶鸭子上架，虽然很痛苦，可收获也是满满的</p>
 <h3 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h3><ul>
 <li><p>主要是用于智慧工地，从上至下对于项目问题和工程进度的把控及问题反馈处理。</p>
@@ -182,35 +187,41 @@
 <h3 id="开车指南"><a href="#开车指南" class="headerlink" title="开车指南"></a>开车指南</h3><ol>
 <li>钉钉的小程序和微信的基本差不多，但生态还是差的有点多，所以说很多业务实现起来没有现成的组件使用，需要自己造， 当然了你可以借鉴官方提供的例子，里面也是有很多好用的DEMO</li>
 </ol>
-<h3 id="登录权限"><a href="#登录权限" class="headerlink" title="登录权限"></a>登录权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户登录 ---&gt; 本地缓存用户信息 ---&gt; 不同权限用户tabbar不同 ---&gt; 跳转页面不同</span><br></pre></td></tr></table></figure>
+<h3 id="登录权限"><a href="#登录权限" class="headerlink" title="登录权限"></a>登录权限</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户登录 ---&gt; 本地缓存用户信息 ---&gt; 不同权限用户tabbar不同 ---&gt; 跳转页面不同</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-1.png" alt="权限1用户"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-3.png" alt="权限2用户， 虽然和权限1的tabBar名称一样，但是跳转的页面不一样"><br><img src="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/xiaochengxu/dd-2.png" alt="权限3用户"></p>
 <ul>
 <li>刚开始我想到的是微信小程序不是有自定义tabBar么，就采用这套方案</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">调用dd.addTabBarItem添加tabBar页面。</span><br><span class="line">调用dd.removeTabBarItem移除tabBar页面。</span><br><span class="line"></span><br><span class="line">注意 使用该接口请注意：</span><br><span class="line">    addTabBarItem 调用时，要保证当前小程序展示的是TabBar上的页面；否则调用会报错，错误码 11。</span><br><span class="line">    PS: 我是有原则的人，不是以想用就可以用的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">调用dd.addTabBarItem添加tabBar页面。</span><br><span class="line">调用dd.removeTabBarItem移除tabBar页面。</span><br><span class="line"></span><br><span class="line">注意 使用该接口请注意：</span><br><span class="line">    addTabBarItem 调用时，要保证当前小程序展示的是TabBar上的页面；否则调用会报错，错误码 11。</span><br><span class="line">    PS: 我是有原则的人，不是以想用就可以用的</span><br></pre></td></tr></table></figure>
+
 <p>好吧你有原则， 我可以让你变得无原则，按照官方的API修改后，可以实现不同用户权限展示不同的tabBar，但是问题又来了</p>
 <p>问题：用户退出登录，不关闭小程序，直接更换账号登录，直接给我把2个不同权限用户的tabBar全展示出来</p>
 <p>好家伙还好最多5个，不然你还给起飞了不成，排查后发现是缓存造成的，只有退出小程序缓存才可以清除，这咋搞</p>
 <p>那这条路子是走不通了，只能自己通过模板的形式自定义了，话不多说直接开干</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"tabbar-1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"tabbar"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"tabbar-item"</span> <span class="attr">a:for</span>=<span class="string">"&#123;&#123;tabbarlist&#125;&#125;"</span> <span class="attr">data-url</span>=<span class="string">"&#123;&#123;item.pagePath&#125;&#125;"</span> <span class="attr">onTap</span>=<span class="string">"tabbarTo"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"tabbar-item_icon"</span> <span class="attr">mode</span>=<span class="string">"scaleToFill"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;active == item.index ? item.activeIcon : item.icon&#125;&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"tabbar-item_text"</span> <span class="attr">style</span>=<span class="string">"color: &#123;&#123;active == item.index?'#3780F0':'#737373'&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    tabbarTo(e) &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; url &#125; = e.target.dataset</span><br><span class="line">        dd.reLaunch(&#123; url &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">        reLaunch  调用dd.reLaunch关闭当前所有页面，跳转到应用内的某个指定页面。  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用模板 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">"/template/tabbar/index.axml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">a:if</span>=<span class="string">"&#123;&#123;location == '1'&#125;&#125;"</span> <span class="attr">is</span>=<span class="string">"tabbar-1"</span> <span class="attr">data</span>=<span class="string">"&#123;&#123;active: 1, tabbarlist: tabbarlist&#125;&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;tabbar-1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;tabbar&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;tabbar-item&quot;</span> <span class="attr">a:for</span>=<span class="string">&quot;&#123;&#123;tabbarlist&#125;&#125;&quot;</span> <span class="attr">data-url</span>=<span class="string">&quot;&#123;&#123;item.pagePath&#125;&#125;&quot;</span> <span class="attr">onTap</span>=<span class="string">&quot;tabbarTo&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;tabbar-item_icon&quot;</span> <span class="attr">mode</span>=<span class="string">&quot;scaleToFill&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123;active == item.index ? item.activeIcon : item.icon&#125;&#125;&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;tabbar-item_text&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color: &#123;&#123;active == item.index?&#x27;#3780F0&#x27;:&#x27;#737373&#x27;&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">tabbarTo</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; url &#125; = e.target.dataset</span><br><span class="line">        dd.reLaunch(&#123; url &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">        reLaunch  调用dd.reLaunch关闭当前所有页面，跳转到应用内的某个指定页面。  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用模板 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">&quot;/template/tabbar/index.axml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">a:if</span>=<span class="string">&quot;&#123;&#123;location == &#x27;1&#x27;&#125;&#125;&quot;</span> <span class="attr">is</span>=<span class="string">&quot;tabbar-1&quot;</span> <span class="attr">data</span>=<span class="string">&quot;&#123;&#123;active: 1, tabbarlist: tabbarlist&#125;&#125;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 <h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ol>
 <li>自定义tabbar模板，使用dd.reLaunch进行切换</li>
 <li>不使用 dd.redirectTo和dd.navigateTo的原因是因为页面跳转后都会返回箭头，展示逻辑和原生的tabBar不太一样</li>
 <li>使用dd.reLaunch进行切换就会失去缓存，页面每次都是查询加载，性能上有点弱</li>
 </ol>
 <h3 id="父组件调用子组件的方法-子组件传值给父组件"><a href="#父组件调用子组件的方法-子组件传值给父组件" class="headerlink" title="父组件调用子组件的方法, 子组件传值给父组件"></a>父组件调用子组件的方法, 子组件传值给父组件</h3><p>微信小程序中是有<code>triggerEvent</code>， 钉钉小程序中有所不同， 采用的是<code>props</code>的方式来实现</p>
-<h4 id="子组件"><a href="#子组件" class="headerlink" title="子组件"></a>子组件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"user-card-item_left"</span> <span class="attr">data-value</span>=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span> <span class="attr">onTap</span>=<span class="string">"radioChange"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">    onChange(value) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">methods: &#123;</span><br><span class="line">    radioChange(e) &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; value &#125; = e.target.dataset</span><br><span class="line">        <span class="keyword">this</span>.props.onChange(value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Children</span> <span class="attr">onChange</span>=<span class="string">"onChange"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 注意自定义方法必须以on开头，不然不会生效 --&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    onChange(value) &#123;</span><br><span class="line">        <span class="comment">/* value 子组件传递过来的数据 */</span></span><br><span class="line">        <span class="keyword">this</span>.setData(&#123; <span class="attr">userIds</span>: value &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></section>
+<h4 id="子组件"><a href="#子组件" class="headerlink" title="子组件"></a>子组件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;user-card-item_left&quot;</span> <span class="attr">data-value</span>=<span class="string">&quot;&#123;&#123;item.id&#125;&#125;&quot;</span> <span class="attr">onTap</span>=<span class="string">&quot;radioChange&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">    <span class="function"><span class="title">onChange</span>(<span class="params">value</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">radioChange</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; value &#125; = e.target.dataset</span><br><span class="line">        <span class="built_in">this</span>.props.onChange(value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Children</span> <span class="attr">onChange</span>=<span class="string">&quot;onChange&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 注意自定义方法必须以on开头，不然不会生效 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">onChange</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">        <span class="comment">/* value 子组件传递过来的数据 */</span></span><br><span class="line">        <span class="built_in">this</span>.setData(&#123; <span class="attr">userIds</span>: value &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#小程序">
+  <a href="/tags#小程序" >
     <span class="tag-code">小程序</span>
   </a>
 
@@ -230,7 +241,7 @@
       </a>
     
     
-      <a class="nav-right" href="/2021/02/02/blog/2021/手撸一个webpack基础demo/">
+      <a class="nav-right" href="/2021/02/02/blog/2021/%E6%89%8B%E6%92%B8%E4%B8%80%E4%B8%AAwebpack%E5%9F%BA%E7%A1%80demo/">
         
           手撸一个webpack基础demo
         
@@ -406,6 +417,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
@@ -16,13 +16,17 @@
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/plugins/gitment.css">
+
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
   <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
+  
+<script src="/js/qrious.js"></script>
 <script src="/js/gitment.js"></script>
+
   
   
     <!-- MathJax support START -->
@@ -49,9 +53,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -160,18 +164,23 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>简易封装Vue全局通信事件<br><a id="more"></a><br>Vue 全局通信我们一般采用的是<code>Vuex</code>的解决方案，但有的时候，就是一个简单的<code>$emit</code>触发机制，使用<code>Vuex</code>就不见的那么灵活，</p>
-<p>这个时候很多人就会采用<code>new Vue()</code> <code>$on</code> <code>$emit</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="keyword">new</span> Vue();</span><br><span class="line"><span class="comment">/* 注入事件 */</span></span><br><span class="line">e.$on(<span class="string">'eventName'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是全局自定义事件传过来的参数msg'</span>+ msg)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/* 调用事件 */</span></span><br><span class="line">e.$emit(<span class="string">'eventName'</span>, msg)</span><br></pre></td></tr></table></figure></p>
+    <section class="markdown-content"><p>简易封装Vue全局通信事件</p>
+<span id="more"></span>
+<p>Vue 全局通信我们一般采用的是<code>Vuex</code>的解决方案，但有的时候，就是一个简单的<code>$emit</code>触发机制，使用<code>Vuex</code>就不见的那么灵活，</p>
+<p>这个时候很多人就会采用<code>new Vue()</code> <code>$on</code> <code>$emit</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="keyword">new</span> Vue();</span><br><span class="line"><span class="comment">/* 注入事件 */</span></span><br><span class="line">e.$on(<span class="string">&#x27;eventName&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我是全局自定义事件传过来的参数msg&#x27;</span>+ msg)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/* 调用事件 */</span></span><br><span class="line">e.$emit(<span class="string">&#x27;eventName&#x27;</span>, msg)</span><br></pre></td></tr></table></figure>
+
 <p>如上既可以父子组件通信，兄弟组件也可以通信，甚至阿婆阿嫂组件也可以，但这样有个问题，<code>Vue</code>类太大了，杀鸡焉用牛刀，我们来把他简化一下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 事件触发器 */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.subs = <span class="built_in">Object</span>.create(<span class="literal">null</span>) <span class="comment">// 对象没有原型属性提高性能</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册事件</span></span><br><span class="line">    $on(eventType, handler) &#123;</span><br><span class="line">        <span class="keyword">this</span>.subs[eventType] = <span class="keyword">this</span>.subs[eventType] || []</span><br><span class="line">        <span class="keyword">this</span>.subs[eventType].push(handler)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//触发事件</span></span><br><span class="line">    $emit(eventType, msg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.subs[eventType]) &#123;</span><br><span class="line">            <span class="keyword">this</span>.subs[eventType].forEach(<span class="function"><span class="params">handler</span> =&gt;</span> &#123;</span><br><span class="line">                handler(msg)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> em = <span class="keyword">new</span> EventEmitter()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> em</span><br></pre></td></tr></table></figure>
-<p>使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> EventEmitter <span class="keyword">from</span> <span class="string">'./EventEmitter.js'</span></span><br><span class="line"></span><br><span class="line">EventEmitter.$on(<span class="string">'refresh'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    conosle.log(msg)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">EventEmitter.$emit(<span class="string">'refresh'</span>, msg)</span><br></pre></td></tr></table></figure></p>
-</section>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 事件触发器 */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.subs = <span class="built_in">Object</span>.create(<span class="literal">null</span>) <span class="comment">// 对象没有原型属性提高性能</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册事件</span></span><br><span class="line">    $on(eventType, handler) &#123;</span><br><span class="line">        <span class="built_in">this</span>.subs[eventType] = <span class="built_in">this</span>.subs[eventType] || []</span><br><span class="line">        <span class="built_in">this</span>.subs[eventType].push(handler)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//触发事件</span></span><br><span class="line">    $emit(eventType, msg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.subs[eventType]) &#123;</span><br><span class="line">            <span class="built_in">this</span>.subs[eventType].forEach(<span class="function"><span class="params">handler</span> =&gt;</span> &#123;</span><br><span class="line">                handler(msg)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> em = <span class="keyword">new</span> EventEmitter()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> em</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> EventEmitter <span class="keyword">from</span> <span class="string">&#x27;./EventEmitter.js&#x27;</span></span><br><span class="line"></span><br><span class="line">EventEmitter.$on(<span class="string">&#x27;refresh&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    conosle.log(msg)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">EventEmitter.$emit(<span class="string">&#x27;refresh&#x27;</span>, msg)</span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#vue">
+  <a href="/tags#vue" >
     <span class="tag-code">vue</span>
   </a>
 
@@ -367,6 +376,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>

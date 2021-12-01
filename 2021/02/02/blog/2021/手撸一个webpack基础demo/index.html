@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+  <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="刮大风我就回家づ博客 vue mint-ui js html css 前端">
@@ -16,13 +16,17 @@
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/plugins/gitment.css">
+
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
   <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
+  
+<script src="/js/qrious.js"></script>
 <script src="/js/gitment.js"></script>
+
   
   
     <!-- MathJax support START -->
@@ -49,9 +53,9 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 <div class="wechat-share">
-  <img src="/css/images/logo.png">
+  <img src="/css/images/logo.png" />
 </div>
 
   <body>
@@ -161,22 +165,27 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>没事了，搞搞，说不定有不一样的收获</p>
-<a id="more"></a>
-<h3 id="Webpack5-基础踩坑记录-代码-zip"><a href="#Webpack5-基础踩坑记录-代码-zip" class="headerlink" title="Webpack5 基础踩坑记录 代码.zip"></a>Webpack5 基础踩坑记录 <a href="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/webpack/webpack-juejin-learn.zip" target="_blank" rel="noopener">代码.zip</a></h3><h4 id="dev启动配置"><a href="#dev启动配置" class="headerlink" title="dev启动配置"></a>dev启动配置</h4><p>这是<code>webpack4.x</code>的写法，依赖有<code>webpack-cli webpack-dev-server</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack-dev-server --config webpack.config.js"</span><br></pre></td></tr></table></figure></p>
+<span id="more"></span>
+
+<h3 id="Webpack5-基础踩坑记录-代码-zip"><a href="#Webpack5-基础踩坑记录-代码-zip" class="headerlink" title="Webpack5 基础踩坑记录 代码.zip"></a>Webpack5 基础踩坑记录 <a target="_blank" rel="noopener" href="https://taoaiyi1108.oss-cn-beijing.aliyuncs.com/post/webpack/webpack-juejin-learn.zip">代码.zip</a></h3><h4 id="dev启动配置"><a href="#dev启动配置" class="headerlink" title="dev启动配置"></a>dev启动配置</h4><p>这是<code>webpack4.x</code>的写法，依赖有<code>webpack-cli webpack-dev-server</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --config webpack.config.js&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>然而使用<code>webpack5.x</code>构建项目的时候，就会出现这样的错误, <code>Cannot find module &#39;webpack-cli/bin/config-yargs&#39;</code>, 原因是 webpack-cli与webpack-dev-server版本不兼容；</p>
-<p>解决方法：<a href="https://www.zihanzy.com/articles/305" target="_blank" rel="noopener">高手指点</a></p>
+<p>解决方法：<a target="_blank" rel="noopener" href="https://www.zihanzy.com/articles/305">高手指点</a></p>
 <ul>
 <li>降级webpack-cli，安装<code>webpack-cli 3.*</code> <code>npm install webpack-cli@3 -D</code></li>
 <li>最新的webpack-cli已经包含了webpack-dev-server的功能，其实还是要安装<code>webpack-cli</code>和<code>webpack-dev-server</code>, 不过都是最新的版本，如果在执行 <code>npm i @webpack-cli/serve -D</code>, 前边2个以来，会有提示，直接回车就可以了。完成后启动命令有所改变。</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack serve --config webpack.config.js"</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack serve --config webpack.config.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+
 <h3 id="Webapck-plugin-功能"><a href="#Webapck-plugin-功能" class="headerlink" title="Webapck-plugin 功能"></a>Webapck-plugin 功能</h3><ul>
 <li><code>clean-webpack-plugin</code> 每次执行npm run build 会发现dist文件夹里会残留上次打包的文件，这里我们推荐一个plugin来帮我们在打包输出前清空文件夹clean-webpack-plugin</li>
 <li><code>autoprefixer</code> css前缀</li>
 <li><code>mini-css-extract-plugin</code> 打包后css从js中抽离出来</li>
 <li><code>extract-text-webpack-plugin</code> <code>webpack4</code>后官方建议使用<code>mini-css-extract-plugin</code></li>
 </ul>
-<h3 id="Loader使用技巧-官方文档"><a href="#Loader使用技巧-官方文档" class="headerlink" title="Loader使用技巧 官方文档"></a>Loader使用技巧 <a href="https://webpack.docschina.org/concepts/loaders/#inline" target="_blank" rel="noopener">官方文档</a></h3><ul>
+<h3 id="Loader使用技巧-官方文档"><a href="#Loader使用技巧-官方文档" class="headerlink" title="Loader使用技巧 官方文档"></a>Loader使用技巧 <a target="_blank" rel="noopener" href="https://webpack.docschina.org/concepts/loaders/#inline">官方文档</a></h3><ul>
 <li>内联方式<code>import Styles from &#39;style-loader!css-loader?modules!./styles.css&#39;;</code></li>
 </ul>
 <h3 id="CSS-处理"><a href="#CSS-处理" class="headerlink" title="CSS 处理"></a>CSS 处理</h3><ul>
@@ -195,20 +204,20 @@
 </li>
 </ul>
 <h3 id="学习地址"><a href="#学习地址" class="headerlink" title="学习地址"></a>学习地址</h3><ul>
-<li>这篇教程写的挺好的，不过有些东西还需要自己的实践踩坑，<a href="https://juejin.cn/post/6844904031240863758" target="_blank" rel="noopener">传送门</a></li>
+<li>这篇教程写的挺好的，不过有些东西还需要自己的实践踩坑，<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904031240863758">传送门</a></li>
 </ul>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><ul>
 <li><code>webpack</code>真的是难啃啊</li>
 <li>学好<code>english</code>很重要，不然文档看的你怀疑人生</li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/11/16ef406ec8b2c55f?imageslim" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/12/11/16ef406ec8b2c55f?imageslim"></p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#webpack">
+  <a href="/tags#webpack" >
     <span class="tag-code">webpack</span>
   </a>
 
@@ -228,7 +237,7 @@
       </a>
     
     
-      <a class="nav-right" href="/2021/03/24/blog/2021/聊聊用React去搭建一个CMS项目的流程/">
+      <a class="nav-right" href="/2021/03/24/blog/2021/%E8%81%8A%E8%81%8A%E7%94%A8React%E5%8E%BB%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AACMS%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%B5%81%E7%A8%8B/">
         
           聊聊用React去搭建一个CMS项目的流程
         
@@ -345,7 +354,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://taoaiyi1108.github.io/2021/02/02/blog/2021/手撸一个webpack基础demo/';
+  var disqus_url = 'http://taoaiyi1108.github.io/2021/02/02/blog/2021/%E6%89%8B%E6%92%B8%E4%B8%80%E4%B8%AAwebpack%E5%9F%BA%E7%A1%80demo/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -404,6 +413,8 @@
 </script>
 <!-- Baidu Tongji -->
 
+
 <script src="/js/script.js"></script>
+
   </body>
 </html>
